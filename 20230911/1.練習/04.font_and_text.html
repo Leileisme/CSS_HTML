@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04.font_and_text</title>
+    <link href="<link href=" https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        /* 預設是 16px(p、div、nav等..) :root=HTML，:root 偽類選擇器的一種 */
+        html {
+            font-size: 16px;
+        }
+
+        /* 設定文件預設的類型 */
+        body {
+            font-family: 微軟正黑體, Arial, Helvetica, sans-serif, Arial, Helvetica, sans-serif;
+        }
+
+
+        .font-style {
+            /* 設定字型家族 */
+            font-family: sans-serif, Arial, Helvetica, sans-serif;
+
+            /*  設定字體大小，px em rem  */
+            font-size: 20px;
+
+            /*  設定斜體  */
+            font-style: italic;
+
+            /* 設定粗體 100~900，bolder/bold */
+            font-weight: 500;
+
+            /* 設定字體店成大寫，第一個字母比較大 */
+            font-variant: small-caps;
+        }
+
+        /* @啟用一個設定字型功能 */
+        @font-face {
+            font-family: 'myfont';
+            src: url(../0.課程資料/AAA.ttf), url(../0.課程資料/BBB.otf)
+        }
+
+        .font-set {
+            font-family: "myfont";
+            font-size: 50px;
+        }
+
+
+        .google-Font {
+            /* 選擇了300、400、700的字種重可用 */
+            font-family: 'Kalam';
+            font-size: 50px;
+            font-weight: 700;
+        }
+
+
+        .text-style {
+            /* 設定inline(包含inline-block)及文字的位置 */
+            text-align: center;
+            /* none、underline、overline、line-through */
+            text-decoration: underline;
+            /* 縮排 */
+            text-indent: 2rem;
+            /*  uppercase(全大寫)、lowervae(全小寫)、capitalize(每個單字第一個字大雪)*/
+            text-transform: capitalize;
+            /* 英文或中文字的間隔也會被影響到 */
+            /* letter-spacing: 2rem; */
+
+            word-spacing: 1rem;
+            /* 單字與單字間的距離要有空格，中文很難有空格，較適合英文 */
+            word-spacing: 1erm;
+            /* 行高，只有數字為背景，後面也可以加單位，EX em... */
+            line-height: 32px;
+            /* 水平位移、垂直位移、模糊半徑、顏色 */
+            text-shadow: 5px 5px 1px rgb(0, 900, 0, 0.5);
+        }
+
+        .multi-text-shadow {
+            font-size: 4rem;
+            text-shadow:
+                1px 1px 1px rgba(25, 255, 255, 1),
+                2px 2px 2px rgba(255, 255, 0, 1),
+                3px 3px 3px rgba(255, 150, 0, 1);
+        }
+
+        /* 設定連結的狀態 */
+        /* 具有href屬性時的樣式 */
+        a:link {
+            color: crimson;
+            text-decoration: none;
+        }
+
+        /* 拜訪過後的樣式 */
+        a:visited {
+            color: gray;
+        }
+
+        /* 滑鼠移入的樣式 */
+        a:hover {
+            color: darkorange;
+            text-decoration: underline;
+        }
+
+        /* 點擊時按住左鍵時的樣式 */
+        a:active {
+            color: darkgreen;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <h1>1.Font 樣式設定</h1>
+    <p class="font-style">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam id corporis explicabo
+        voluptates veniam ratione non cum, deserunt quisquam ullam dolorum, eligendi inventore culpa nihil! Saepe
+        voluptatum culpa doloribus sequi. </p>
+
+    <hr>
+    <h2>自訂字形</h2>
+    <p class="font-set">QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ</p>
+
+    <hr>
+    <h2>google Fonts</h2>
+    <p class="google-Font">Lorem ipsum dolor sit amet.</p>
+
+    <hr>
+    <h1>2.Text 樣式設定</h1>
+    <p class="text-style">Lorem ipsum dolor sit amet consectetur adipisicing elit.後 來</p>
+
+    <h2>inline文字也會受影響</h2>
+    <p class="text-style">
+        <span>哈哈哈</span>
+    </p>
+
+    <h2>多重文字陰影</h2>
+    <p class="multi-text-shadow">Lorem ipsum dolor sit amet.</p>
+
+    <2>3.連結顏色變化</2>
+    <a href="#">google</a>
+
+    <h1>4.rem 與 em 差異</h1>
+    <ul>
+        <li>文件預設字體大小 16px，也就是1rem</li>
+        <li>root指的是根元素html，兩者是相同的</li>
+    </ul>
+
+    <h1>REM</h1>
+    <p>為 room 預設 font-size 的倍數，預設為16px</p>
+    <div style="font-size: 1rem;">Font
+        <div style="font-size: 2rem;">
+            Font
+            <div style="font-size: 3rem;">
+                Font
+            </div>
+        </div>
+    </div>
+
+    <h1>EM</h1>
+    <p>
+        em可能為父層或祖先層 font-size 的倍數，
+        父層有設定文字尺寸就以它為基準，沒有就繼續往外找，找不到最後會以 root 預設的 font-size 為基準，就是 16px。
+    </p>
+    <!-- 往上一層字體大小找 -->
+    <!-- 16xp -->
+    <div style="font-size: 1em;">Font
+        <!-- 32px -->
+        <div style="font-size: 2em;">
+            Font
+            <!-- 96px -->
+            <div style="font-size: 3em;">
+                Font
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

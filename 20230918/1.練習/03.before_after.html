@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>before_after</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    /* box-sizing:border-box 指 padding、border 都算在 width 裡面 */
+
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding-bottom: 300px;
+    }
+
+
+    h1 {
+      color: white;
+      background: #000;
+      margin: 2rem 0 0 0;
+      padding: 1rem;
+    }
+
+    hr {
+      margin: 2rem;
+    }
+
+    .container {
+      width: 75%;
+      margin: 1% auto;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: #333;
+      margin: 20px auto;
+      color: white;
+      position: relative;
+    }
+
+    /* 這邊是選擇 .box 後面的 .content，如果沒有加 .box，那就會選到全部的content */
+    .box .content {
+      width: 100px;
+      height: 100px;
+      background: red;
+
+      position: relative;
+      top: 0;
+      left: 0px;
+    }
+
+    /* 以上在我before設定成 position: relative後，位置就跑了?? */
+
+
+    .box::before {
+      content: "before";
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      position: relative;
+      /* border: 5px solid #ff0; */
+      left: 25px;
+      top: 0;
+      background: green;
+    }
+
+    /* 有 content 時是inline */
+
+
+    .box::after {
+      content: "after";
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      /* border: 5px solid #ff0; */
+      right: -80px;
+      top: 0;
+      background: blue;
+    }
+
+    .bg-color {
+      background-color: lemonchiffon;
+    }
+
+    .col {
+      width: 45%;
+      margin: 2.5%;
+      float: left;
+    }
+
+    .col img {
+      width: 100%;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+
+    .box2 {
+      width: 150px;
+      height: 150px;
+      background: url("https://picsum.photos/300/200/?random=10");
+      margin: auto;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .box2::before {
+      content: "";
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: 0;
+      left: -110%;
+      background: url("https://picsum.photos/300/200/?random=5");
+      transition: 0.5s;
+    }
+
+    .box2::after {
+      content: "";
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: 0;
+      right: -110%;
+      background: url("https://picsum.photos/300/200/?random=4");
+      transition: 0.5s;
+    }
+
+    /* 這邊是一個轉場效果，明天會講 */
+    .box2:hover::before {
+      background: url("https://picsum.photos/300/200/?random=1");
+      left: 110%;
+    }
+
+    .box2:hover::after {
+      background: url("https://picsum.photos/300/200/?random=2");
+      right: 110%;
+    }
+
+    .box2 .inside {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    .box2 .inside::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: orange;
+      top: -110%;
+      transition: 0.5s;
+    }
+
+    .box2 .inside::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: purple;
+      bottom: -110%;
+      transition: 0.5s;
+    }
+
+    .box2 .inside:hover::before {
+      transform: rotate(360deg);
+    }
+
+    .box2 .inside:hover::after {
+      transform: rotate(-360deg);
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="container">
+    <h1>偽元素 ::before、::after</h1>
+    <div class="box">
+      <div class="content"></div>
+    </div>
+
+    <div>
+      <h1 class="container">啟動條件與特性</h1>
+      <ul>
+        <li>1.要有content:'' ，才會有作用</li>
+        <li>2.建立時類型為 inline</li>
+        <li>3.position:absolute、foxed 轉型為 block，可設定寬高</li>
+        <li>4.結構上，before被建構在內容區域的前方，after在內容區域的後方，像分身可以幫本體做更多事情</li>
+        <li>5.偽元素不能再建立偽元素 例如，::before::before 是不行的</li>
+        <li>6.無法使用在置換元素：img、input、iframe...都沒辦法建立偽元素</li>
+        <li>7.before與after定位時，依舊遵循後蓋前(after會蓋住before)，可使用z-index改變位置</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>1.當作清除浮動</h1>
+  </div>
+
+  <div class="container bg-color  clearfix">
+    <div class="col">
+      <img src="https://picsum.photos/600/400/?random=10">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, adipisci placeat enim autem similique quos vero
+        earum fuga rem suscipit!</p>
+    </div>
+
+
+    <div class="col">
+      <img src="https://picsum.photos/600/400/?random=10">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, adipisci placeat enim autem similique quos vero
+        earum fuga rem suscipit!</p>
+    </div>
+
+    <!-- <div style="clear:both;"></div> -->
+    <!-- ::after也是在這邊 => 將其變成block，一樣也是做 clear:both -->
+  </div>
+
+  <div class="container">
+    <h1>2.摸到主題，讓分身做事情</h1>
+  </div>
+
+  <div class="container">
+    <div class="box2">
+      <div class="inside"></div>
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

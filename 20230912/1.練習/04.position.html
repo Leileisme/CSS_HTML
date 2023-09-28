@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04.position</title>
+
+    <style>
+        .container {
+            width: 75%;
+            margin: auto;
+            border: 1px solid #000;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4 {
+            padding: 1rem;
+        }
+
+        .box1 {
+            background-color: rgb(105, 233, 255);
+        }
+
+        .box2 {
+            background-color: yellowgreen;
+        }
+
+        .box3 {
+            background-color: rgb(247, 255, 137);
+        }
+
+        .box4 {
+            background-color: rgb(255, 152, 231);
+        }
+
+        /* 相對定位 */
+        .relative {
+            position: relative;
+        }
+
+        /* 絕對定位 */
+        .absolute {
+            position: absolute;
+        }
+
+        /* top、bottion、left、right 指的是位置移動 */
+        .top {
+            top: 0;
+        }
+
+        .bottom {
+            bottom: 0;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>position: relative</h1>
+        <ul>
+            <li>使用位值屬性(top、right、bottom、left)會以自己原來位置位移，保留自己原來的空間，不會被其他元素佔據。</li>
+            <li>沒有任何位移屬性，會留在原地不動，這種相對定位的做法，這種相對定位的做法，常作為 absolute 子元素目標的操作。</li>
+            <li>進入定位層級，因此可以使用 z-index</li>
+        </ul>
+
+        <div class="box1">
+            <h1>box1</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+
+        <div class="box2">
+            <h1>box2</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+
+        <div class="box3 relative left right top">
+            <h1>box3</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+
+        <div class="box4">
+            <h1>box4</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+    </div>
+
+
+
+
+    <div class="container relative">
+
+        <h1>position: absolute</h1>
+        <ul>
+            <li>沒有任何屬性時，該元素會脫離正常流向，進入定位層級(可使用 z-index)，後方元素依據 CSS 流動特性會到絕對定位的下方(被遮住)</li>
+            <li>如果祖先元素都找不到任何定位點(可用的relative、absolute、fixed)，最後會以初始容器元素(html)做為位移的目標。</li>
+        </ul>
+
+        <div class="box1">
+            <h1>box1</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+
+        <div class="box2">
+            <h1>box2</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+
+        <div class="box3 absolute right top" style="width:300px">
+            <h1>box3</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+
+        <div class="box4">
+            <h1>box4</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis libero saepe ut labore
+                doloribus sunt, dolorem ducimus ipsam cupiditate.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03.float</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: 2rem auto;
+            background: #ccc;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .float-left {
+            float: left;
+            margin: 1rem;
+        }
+
+        .pp {
+            background-color: aquamarine;
+            color: #000;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        /* 清除右側浮動 */
+        .clear-left {
+            clear: left;
+        }
+
+        /* 清除左側浮動 */
+        .clear-right {
+            clear: right;
+        }
+
+
+        .clear-both {
+            clear: both;
+        }
+
+        .menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            background: #000;
+            color: yellow;
+            overflow: hidden;
+        }
+
+        .menu .menu-item {
+            float: left;
+            width: 16%;
+            background-color: blue;
+            padding: 10px 1%;
+            margin: 0 1%;
+        }
+
+        .menu .menu-item:hover {
+            background-attachment: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>特性一：浮動元素會從正常流向獨立出來</h2>
+        <p>獨立出來後，後方元素會在 float 元素下方(由後方元素背景得知)，後方元素面裡面的文字會繞著 float 元素。</p>
+
+        <h2>float-left</h2>
+        <img class="float-left" src="https://picsum.photos/300/200/?random=10">
+        <p class="pp">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non excepturi voluptas nihil dolorem veritatis
+            quaerat sed facere? Repellendus nam maxime laborum doloribus sint repudiandae, quo harum tempora rerum rem
+            nostrum omnis deserunt voluptatibus minus odit molestias similique saepe nihil, quibusdam quasi, temporibus
+            fugiat. Eligendi possimus tempora reprehenderit nemo dicta mollitia et! Laborum magni deserunt inventore
+            co
+
+
+        </p>
+
+        <p class="pp clear-left">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non excepturi voluptas nihil dolorem veritatis
+            quaerat sed facere? Repellendus nam maxime laborum doloribus sint repudiandae, quo harum tempora rerum rem
+            nostrum omnis deserunt voluptatibus minus odit molestias similique saepe nihil, quibusdam quasi, temporibus
+            fugiat. Eligendi possimus tempora reprehenderit nemo dicta mollitia et! Laborum magni deserunt inventore
+            corrupti perspiciatis molestias quia fugiat in temporibus excepturi beatae natus commodi libero suscipit, ab
+            error dolorum aliquam minus nihil qui veritatis atque. Quos at nobis provident optio repudiandae quia
+            voluptate consequatur autem porro, omnis nulla laborum id commodi maiores praesentium veniam incidunt iusto
+            aliquam quis!
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique natus nesciunt, nemo at tempora eaque
+            esse iure officiis vero voluptas veritatis, voluptates quam dolorem officia soluta quis accusantium cum
+            pariatur.
+
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, placeat voluptatum quo vel, et aut illo,
+            facere impedit ut quaerat cumque cum necessitatibus ab iusto suscipit error soluta tenetur dicta.
+
+        </p>
+
+        <hr>
+
+        <h2>float-left 和 float-right</h2>
+        <img class="float-left" src="https://picsum.photos/300/200/?random=10">
+        <img class="float-left" src="https://picsum.photos/300/200/?random=10">
+        <p class="pp float-both">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia inventore, illo impedit, eligendi nobis,
+            perferendis et debitis excepturi dolorum dolorem laborum assumenda perspiciatis commodi atque itaque
+            temporibus neque. Molestiae consequatur cupiditate id, veniam quia incidunt sed et quas minima quisquam
+            adipisci autem, iste nesciunt provident hic perspiciatis commodi ipsam deserunt.
+        </p>
+    </div>
+
+    <!-- overflow:hidden 可以做區塊格式化的動作 -->
+    <div class="container" style="overflow: hidden;">
+        <h2>特性二:浮動會區塊化元素</h2>
+        <ul>
+            <li>具有區塊化(block)，將元素轉型成 block</li>
+        </ul>
+
+        <span style="float: left;">我是span， float變成block</span>
+        <button style="float: right;">我是button， float變成block</button>
+    </div>
+
+    <div class="container">
+        <h3>選單</h3>
+        <ul class="menu">
+            <li class="menu-item">item</li>
+            <li class="menu-item">item</li>
+            <li class="menu-item">item</li>
+            <li class="menu-item">item</li>
+            <li class="menu-item">item</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

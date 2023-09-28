@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: 2rem auto;
+      background: #ccc;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .float-left {
+      float: left;
+      margin: 1rem;
+    }
+
+    .float-right {
+      float: right;
+      margin: 1rem;
+    }
+
+    .pp {
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+    }
+
+    /* 清除左側浮動 */
+    .clear-left {
+      clear: left;
+    }
+
+    /* 清除右側浮動 */
+    .clear-right {
+      clear: right;
+    }
+
+    .clear-both {
+      clear: both;
+    }
+
+    .menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background: #000;
+      color: yellow;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .menu .menu-item {
+      float: left;
+      width: 16%;
+      background: darkblue;
+      padding: 10px 1%;
+      margin: 0 1%;
+    }
+
+    .menu .menu-item:hover {
+      background: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>特性一:浮動元素會從正常流向獨立出來</h2>
+    <p>獨立出來後，後方元素會在 float 元素下方(由後方元素背景得知)，後方元素裡面的文字內容會圍繞著 float 元素。</p>
+    <h2>float-left</h2>
+    <img class="float-left" src="https://picsum.photos/200/200/?random=10">
+    <p class="pp">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, impedit distinctio iure eaque suscipit totam,
+      doloremque quis eum ex reiciendis eligendi repellat. Sapiente delectus consequatur id. Nemo molestias error unde
+      minus repellat provident eligendi aut corrupti. Nobis incidunt, assumenda dicta doloribus, distinctio placeat
+      dolor, modi minus mollitia at reprehenderit. Doloribus, cupiditate, odit molestias nulla nostrum porro tempore
+      esse, pariatur a cum odio fuga ipsam officia ea laborum maxime aliquam libero. Dolores rerum debitis sit quaerat
+      numquam excepturi. Dolorum itaque ipsa quam cum non quos deserunt sint ab, tenetur ipsam eveniet enim accusamus
+      recusandae. Reiciendis sit ipsum saepe ut iure autem.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, impedit distinctio iure eaque suscipit totam,
+      doloremque quis eum ex reiciendis eligendi repellat. Sapiente delectus consequatur id. Nemo molestias error unde
+      minus repellat provident eligendi aut corrupti. Nobis incidunt, assumenda dicta doloribus, distinctio placeat
+      dolor, modi minus mollitia at reprehenderit. Doloribus, cupiditate, odit molestias nulla nostrum porro tempore
+      esse, pariatur a cum odio fuga ipsam officia ea laborum maxime aliquam libero. Dolores rerum debitis sit quaerat
+      numquam excepturi. Dolorum itaque ipsa quam cum non quos deserunt sint ab, tenetur ipsam eveniet enim accusamus
+      recusandae. Reiciendis sit ipsum saepe ut iure autem.
+
+    </p>
+
+    <p class="pp clear-left">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, impedit distinctio iure eaque suscipit totam,
+      doloremque quis eum ex reiciendis eligendi repellat. Sapiente delectus consequatur id. Nemo molestias error unde
+      minus repellat provident eligendi aut corrupti. Nobis incidunt, assumenda dicta doloribus, distinctio placeat
+      dolor, modi minus mollitia at reprehenderit. Doloribus, cupiditate, odit molestias nulla nostrum porro tempore
+      esse, pariatur a cum odio fuga ipsam officia ea laborum maxime aliquam libero. Dolores rerum debitis sit quaerat
+      numquam excepturi. Dolorum itaque ipsa quam cum non quos deserunt sint ab, tenetur ipsam eveniet enim accusamus
+      recusandae. Reiciendis sit ipsum saepe ut iure autem.
+
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fuga cum velit nihil quo tenetur a eveniet
+      quibusdam debitis minima voluptatem beatae, libero corrupti placeat eum earum accusantium iusto fugiat? A quam
+      laboriosam ipsum voluptates labore magnam tempora dicta, sit voluptas veniam amet repellat veritatis itaque quos
+      libero quo cupiditate facilis praesentium blanditiis enim omnis! Consequuntur eius sunt, ipsam, eum dolorem illo
+      laborum iure aut nobis, doloremque laboriosam tempore fugiat omnis. Illo recusandae veritatis odit ad porro quas
+      sequi rerum distinctio quaerat. Recusandae esse ipsum quos provident repellat, officia ut vel minus facilis
+      assumenda sapiente pariatur quibusdam eius! Sed, eaque.
+    </p>
+
+    <h2>float-right</h2>
+    <img class="float-right" src="https://picsum.photos/200/200/?random=10">
+    <p class="pp">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, impedit distinctio iure eaque suscipit totam,
+      doloremque quis eum ex reiciendis eligendi repellat. Sapiente delectus consequatur id. Nemo molestias error unde
+      minus repellat provident eligendi aut corrupti. Nobis incidunt, assumenda dicta doloribus, distinctio placeat
+      dolor, modi minus mollitia at reprehenderit. Doloribus, cupiditate, odit molestias nulla nostrum porro tempore
+      esse, pariatur a cum odio fuga ipsam officia ea laborum maxime aliquam libero. Dolores rerum debitis sit quaerat
+      numquam excepturi. Dolorum itaque ipsa quam cum non quos deserunt sint ab, tenetur ipsam eveniet enim accusamus
+      recusandae. Reiciendis sit ipsum saepe ut iure autem.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, impedit distinctio iure eaque suscipit totam,
+      doloremque quis eum ex reiciendis eligendi repellat. Sapiente delectus consequatur id. Nemo molestias error unde
+      minus repellat provident eligendi aut corrupti. Nobis incidunt, assumenda dicta doloribus, distinctio placeat
+      dolor, modi minus mollitia at reprehenderit. Doloribus, cupiditate, odit molestias nulla nostrum porro tempore
+      esse, pariatur a cum odio fuga ipsam officia ea laborum maxime aliquam libero. Dolores rerum debitis sit quaerat
+      numquam excepturi. Dolorum itaque ipsa quam cum non quos deserunt sint ab, tenetur ipsam eveniet enim accusamus
+      recusandae. Reiciendis sit ipsum saepe ut iure autem.
+
+    </p>
+
+    <p class="pp clear-right">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, impedit distinctio iure eaque suscipit totam,
+      doloremque quis eum ex reiciendis eligendi repellat. Sapiente delectus consequatur id. Nemo molestias error unde
+      minus repellat provident eligendi aut corrupti. Nobis incidunt, assumenda dicta doloribus, distinctio placeat
+      dolor, modi minus mollitia at reprehenderit. Doloribus, cupiditate, odit molestias nulla nostrum porro tempore
+      esse, pariatur a cum odio fuga ipsam officia ea laborum maxime aliquam libero. Dolores rerum debitis sit quaerat
+      numquam excepturi. Dolorum itaque ipsa quam cum non quos deserunt sint ab, tenetur ipsam eveniet enim accusamus
+      recusandae. Reiciendis sit ipsum saepe ut iure autem.
+
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fuga cum velit nihil quo tenetur a eveniet
+      quibusdam debitis minima voluptatem beatae, libero corrupti placeat eum earum accusantium iusto fugiat? A quam
+      laboriosam ipsum voluptates labore magnam tempora dicta, sit voluptas veniam amet repellat veritatis itaque quos
+      libero quo cupiditate facilis praesentium blanditiis enim omnis! Consequuntur eius sunt, ipsam, eum dolorem illo
+      laborum iure aut nobis, doloremque laboriosam tempore fugiat omnis. Illo recusandae veritatis odit ad porro quas
+      sequi rerum distinctio quaerat. Recusandae esse ipsum quos provident repellat, officia ut vel minus facilis
+      assumenda sapiente pariatur quibusdam eius! Sed, eaque.
+    </p>
+
+    <hr>
+
+    <h2>float-left 和 float-right</h2>
+    <img class="float-left" src="https://picsum.photos/200/200/?random=10">
+    <img class="float-right" src="https://picsum.photos/200/200/?random=10">
+    <p class="pp clear-both">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates autem, veritatis incidunt deleniti
+      magni suscipit consequatur quod sunt, est culpa architecto distinctio adipisci esse alias, unde nemo dignissimos
+      quas?
+    </p>
+  </div>
+
+  <!-- overflow:hidden 可以做區塊格式化的動作 -->
+  <div class="container" style="overflow: hidden;">
+    <h2>特性二:浮動會區塊化元素</h2>
+    <ul>
+      <li>具有區塊化(block)，將元素轉型成 block。</li>
+    </ul>
+    <span style="float:left">我是 span，float 變成 block</span>
+    <button style="float:right">我是 buttn，float 變成 block</button>
+  </div>
+
+  <div class="container">
+    <h3>選單</h3>
+    <ul class="menu">
+      <li class="menu-item">item</li>
+      <li class="menu-item">item</li>
+      <li class="menu-item">item</li>
+      <li class="menu-item">item</li>
+      <li class="menu-item">item</li>
+    </ul>
+  </div>
+</body>
+
+</html>

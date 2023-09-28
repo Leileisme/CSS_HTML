@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css
+          integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      padding: 1rem;
+      border: 1px solid #333;
+    }
+
+    .wrap {
+      border: 5px dashed #333;
+      margin: 50px;
+      padding: 50px 0;
+
+      position: relative;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+      color: white;
+      line-height: 100px;
+      text-align: center;
+      font-size: 2rem;
+      position: absolute;
+      left: 0;
+      /* top: 0; */
+    }
+
+    /* 1.定義動畫名稱(名稱自取) */
+    @keyframes animation {
+
+      /* from = 0% */
+      from {
+        background-color: red;
+        transform: translate(0, 0);
+      }
+
+      50% {
+        background-color: green;
+        /* transform: translate(0, 0) rotate(360deg); */
+      }
+
+      /* to = 100% */
+      to {
+        background-color: blue;
+        transform: translate(50vw, 0);
+      }
+    }
+
+    .animation {
+      /* 動畫名稱 */
+      animation-name: animation;
+
+      /* 持續時間 ms 或 s */
+      animation-duration: 2s;
+
+      /* 
+        播放次數
+         infinite 無限次數
+      */
+      animation-iteration-count: 1;
+
+      /*
+        轉場速率
+        ease 預設
+        linear 線性等速
+        ease-in 由慢變快
+        ease-out 由快變慢
+        ease-in-out 由慢變快，由快變慢
+        其他速率參考:https://easings.net/
+      */
+      animation-timing-function: linear;
+
+      /* 播放方向
+        normal 預設 => 0% 到 100% 播放
+        reverse 反向播放 => 100% 到 0% 播放
+        alternate 交替播放 => 奇數是正向播放，偶數是反向播放
+        alternate-reverse 交替播放 => 奇數是反向播放，偶數是正向播放
+      */
+      animation-direction: normal;
+
+      /* 延遲時間 */
+      animation-delay: 1s;
+
+      /*
+        播放模式
+        none => 動畫結束時回到沒有進入動畫的初始狀態
+        forwards => 停留在最後一帧(100%)
+        backwards => 當有設定 delay 時動畫一開始會停在第一幀，動畫結束後回到沒有進入動畫的初始狀態
+        both => 動畫一開始在第一幀(紅色)，動畫結束後停在最後一幀(藍色)
+      */
+      animation-fill-mode: both;
+
+      /* 縮寫，第一個時間 duration，第二個時間是 delay */
+      animation: animation 2s 1s infinite linear alternate-reverse both;
+    }
+
+    @keyframes rotateIt {
+      /* 0% {
+        transform: rotate(0deg);
+      } */
+
+      50% {
+        transform: rotate(360deg);
+      }
+
+      /* 100% {
+        transform: rotate(0deg);
+      } */
+    }
+
+    @keyframes moveIt {
+      50% {
+        margin-left: 1000px;
+      }
+    }
+
+    /* @keyframes moveIt {
+      50% {
+        left: 1000px;
+      }
+    } */
+
+    .multiple {
+      animation-name: rotateIt, moveIt;
+      animation-duration: 3s, 6s;
+      /* 縮寫 */
+      animation: rotateIt 3s, moveIt 6s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>動畫(animtion)</h1>
+    <p>動畫與轉場的差異</p>
+    <h2>animation</h2>
+    <ul>
+      <li>可以設定關鍵影格(keyframes)控制動畫進度的狀態，產生更複雜的動畫。</li>
+      <li>網頁載入時自動發生，也可以觸發發生(新增、刪除 class)，或是循環重複來回播放等等。</li>
+    </ul>
+    <h2>transition</h2>
+    <ul>
+      <li>一定要觸發條件，兩種狀態樣式的改變。</li>
+      <li>它是一次性且沒有循環效果，必須重新再觸發一次。</li>
+    </ul>
+
+    <div class="wrap">
+      <div class="box animation"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>套用多個動畫</h2>
+    <div class="wrap">
+      <div class="box multiple"></div>
+    </div>
+  </div>
+</body>
+
+</html>

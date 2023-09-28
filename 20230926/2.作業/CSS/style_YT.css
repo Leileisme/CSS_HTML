@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+}
+
+/* header--------------------------------- */
+#header {
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgb(138, 232, 237);
+}
+
+/* sidebar--------------------------------- */
+#sidebar {
+	width: 15%;
+	height: calc(100% - 60px);
+	position: fixed;
+	margin-top: 60px;
+	background: #f9ffa1;
+}
+
+/* content_top--------------------------------- */
+#content_top {
+	width: calc(100% - 15%);
+	height: 30px;
+	position: fixed;
+	margin-top: 60px;
+	margin-left: 15%;
+	background: #86c89b;
+}
+
+/* content--------------------------------- */
+#content {
+	width: calc(100% - 15%);
+	height: calc(100% - 60px);
+	margin-left: 15%;
+	top: 60px;
+	background: #ffbcec;
+}

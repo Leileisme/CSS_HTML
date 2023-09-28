@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02.transition</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+    }
+
+
+    .hover {
+      width: 100px;
+      height: 100px;
+      color: white;
+      background-color: black;
+      font-size: 2rem;
+
+      /* 文字垂直置中 */
+      text-align: center;
+      line-height: 100px;
+      float: left;
+
+      /* 起始畫面 設定轉場屬性(過渡) 預設all 也可設定none，也可指定屬性 */
+      /* 一般不會特別指定某屬性 */
+      /* transition-property: width, background-color, font-size, transform, box-shadow; */
+      /* 給它變化的秒數，預設 0 秒 */
+      transition-duration: 1s;
+
+      /* 轉場速率
+      ease 預設
+      linear 線性轉場
+      ease-in 由慢變快
+      ease-out 由快變慢
+      ease-in-out 由慢變快，由快變慢
+      其他速率參考:display:https://easings.net ;
+      */
+      transition-timing-function: ease;
+      /* 碰到/離開都會延遲 延遲時間，預設0 */
+      transition-delay: 0.5s;
+    }
+
+    .hover:hover {
+      /* width: 50vw;
+      background-color: #555;
+      font-size: 2rem;
+      /* transform: rotate(360deg); */
+      /* transform: translateX(100px); */
+      box-shadow: 5px 10px 3px 50px #00f;
+
+      /* 會把旁邊的推出去 */
+      margin: 100px;
+      transform: rotate(360deg);
+
+      /* transform 不會影響到其他人，只有自己會做動畫 */
+
+      /* transform: width 0.5s ease background-color 1s ease-in-uor; */
+      /* 直接使用所有屬性，因為ALL可以省略，設定duration */
+      /* transition: 0.5s; */
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      color: white;
+      text-align: center;
+      float: left;
+      background: #f05;
+    }
+
+    label[for="checked-me"] {
+      background-color: deeppink;
+      color: white;
+      padding: .5rem .7rem;
+      display: inline-block;
+
+      cursor: pointer;
+    }
+
+    /* 屬性選擇器 選到想要的東東 給它設定，但也可以用 class id去選擇再設定 */
+
+
+    .sidebar {
+      width: 100px;
+      color: white;
+      background-color: darkblue;
+      padding: 1rem;
+      margin-left: -200px;
+      transition: 1s;
+    }
+
+    /* 這邊的「+」指的是我要對隔壁的東東做用 */
+    #checked-me:checked+.sidebar {
+      margin-left: 0;
+    }
+
+    #checked-me {
+      display: none;
+    }
+  </style>
+</head>
+
+
+<body>
+  <a id="link" href="http://www.google.com" title="google"></a>
+  <h1>轉場(transition)或稱過渡</h1>
+  <ul>
+    <li>轉場是有兩組樣式之間漸進的轉場過程，起始樣式與結束樣式，瀏覽器會會將兩組樣式形成補間動畫</li>
+    <li>必須要有狀態觸發動作(狀態有很多種)，最常見的是 :hover 或是 media query 媒體查詢尺寸的改變也可以做轉場</li>
+  </ul>
+</body>
+
+<h1>hover狀態</h1>
+<div class="hover">
+  <span>hover</span>
+</div>
+
+<div class="box">
+  <span>box</span>
+</div>
+
+
+<hr style="clear: both;margin: 50px 0;position: relative;top: 25px;">
+
+<h1>checked 狀態</h1>
+<label for="checked-me">checked-me</label>
+<!-- 這邊label for是固定的寫法 -->
+<!-- for可連結id一起作用 -->
+
+<input id="checked-me" type="checkbox">
+<!-- input 與 tpye是一組的(type選單類型很多) -->
+
+<div class="sidebar">本書有所這次動態還能一體不住轉帖，方法。</div>
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.animation</title>
+
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      padding: 1rem;
+      border: 1px solid #333;
+    }
+
+    .warp {
+      border: 5px dashed #333;
+      margin: 50px;
+      padding: 50px 0;
+
+      position: relative;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+      color: #fff;
+      line-height: 100px;
+      text-align: center;
+      font-size: 2rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* 建立關鍵影格「@keyframes」 動畫名稱「animation」(自取) */
+    @keyframes animation {
+
+      /* 等於 0% */
+      from {
+        background-color: #f20;
+        transform: translate(0, 0);
+      }
+
+      50% {
+        background-color: chartreuse;
+        transform: translate(0, 0) rotate(360deg);
+      }
+
+      /* 等於 100%，可替換 */
+      to {
+        background-color: #05f;
+        transform: translate(50vw, 0);
+      }
+    }
+
+    .animation {
+      /* 動畫名稱 */
+      animation-name: animation;
+
+      /* 持續時間 */
+      animation-duration: 2s;
+
+      /* 播放時間 無限循環「infinite」 或寫 ${1}次*/
+      animation-iteration-count: infinite;
+
+      /* 轉場速率 
+        ease 預設
+        linear 線性等速
+        ease-in 由慢變快
+        ease-out 由快變慢
+        ease-in-out 由慢變快，由快變慢
+        其他速率參考:https://easings.net/
+      */
+      animation-timing-function: ease;
+
+      /*  撥放方向  */
+      /* 「reverse」 反向播放 => 100% 到 0% 播放 */
+      /* 「normal」 預設 => 0% 到 100% 播放 */
+      /* 「alternate」 交替播放  => 奇數是正向，偶數是反向 */
+      /* 「alternate-reverse」 反向交替播放 => 偶數是正向，奇數是反向 */
+      /* animation-direction: alternate-reverse; */
+
+      /* 延遲時間 */
+      animation-delay: 5s;
+
+
+      /* 
+      播放模式
+      「none」 動畫結束時，會回到沒有動畫的初始狀態
+      「forwards」 停留在最後一幀(100%)
+      「backwards」 當有設定 delay 時，動畫一開始會停在第一幀，動畫結束後會到沒有進入動畫的初始狀態
+      「both」動畫一開始，進入第一幀，結束後最後一幀*/
+
+      animation-fill-mode: both;
+
+      /* 縮寫 第一個時間是 duration，第二個時間 delay */
+      animation: animation 2s 1s infinite linear alternate-reverse both;
+    }
+
+    @keyframes rotateIt {
+
+      /* 如果0% 100% 都是0的話可以省略 */
+      50% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes moveIt {
+      50% {
+        margin-left: 1000px;
+      }
+    }
+
+    .multiple {
+      animation-name: rotateIt, moveIt;
+      animation-duration: 3s, 6s;
+
+      /* 縮寫 */
+      animation: rotateIt 3s, moveIt 6s;
+      animation-iteration-count: infinite;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="container">
+    <h1>動畫(animation)</h1>
+    <p>動畫與轉場的差異</p>
+    <h2>animation</h2>
+    <ul>
+      <li>可以設定關鍵影格(keyframes)控制動畫進度的狀態。產生更複雜的動畫</li>
+      <li>網頁載入時自動發生，也可以觸發發生(新生、刪除、class)，或是循環重複來回播放等等</li>
+    </ul>
+
+    <h2>transition</h2>
+    <ul>
+      <li>一定要觸發條件，兩種狀態樣式的改變</li>
+      <li>它一次性請沒有循環效果，必須重新再觸發一次</li>
+    </ul>
+  </div>
+
+  <div class="warp">
+    <div class="box animation"></div>
+  </div>
+
+  <div class="container">
+    <h2>套用多組動畫</h2>
+    <div class="warp">
+      <div class="box multiple"></div>
+    </div>
+  </div>
+</body>
+
+</html>

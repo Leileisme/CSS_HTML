@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .hover {
+      width: 100px;
+      height: 100px;
+      color: white;
+      background: black;
+      font-size: 1rem;
+      /* 文字水平垂直置中 */
+      text-align: center;
+      line-height: 100px;
+      float: left;
+
+      /* 設定轉場屬性，預設 all，也可以設定 none，也可以指定屬性 */
+      /* transition-property: width, background-color, font-size, transform, box-shadow; */
+      /* 持續時間，預設 0 秒 */
+      transition-duration: 1s;
+      /* 轉場速率 
+        ease 預設
+        linear 線性等速
+        ease-in 由慢變快
+        ease-out 由快變慢
+        ease-in-out 由慢變快，由快變慢
+        其他速率參考:https://easings.net/
+      */
+      transition-timing-function: linear;
+      /* 延遲時間，預設 0 */
+      /* transition-delay: 1s; */
+
+      /* 個別指定屬性的 transition */
+      transition: width 0.5s ease-in, background-color 1s ease-in-out;
+      /* 直接使用所有屬性，因為 all 可以省略，設定 duration */
+      transition: 0.5s;
+    }
+
+    .hover:hover {
+      /* width: 50vw; */
+      /* background-color: red; */
+      font-size: 2rem;
+      /* transform: translateX(100px); */
+      box-shadow: 0 0 50px 10px rgba(0, 0, 255, 0.8);
+      margin-right: 100px;
+
+      /* transform 動畫不會影響到其他人，只有自己會做動畫 */
+      transform: rotate(360deg);
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      color: white;
+      text-align: center;
+      float: left;
+      background: deeppink;
+    }
+
+    label[for="checked-me"] {
+      background: deepskyblue;
+      color: white;
+      padding: .5rem .75rem;
+      display: inline-block;
+
+      cursor: pointer;
+    }
+
+    .sidebar {
+      width: 100px;
+      color: white;
+      background: darkmagenta;
+      padding: 1rem;
+      margin-left: -200px;
+      transition: 1s;
+    }
+
+    #checked-me:checked+.sidebar {
+      margin-left: 0;
+    }
+
+    #checked-me {
+      display: none;
+    }
+
+    h1+p {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+  <h1>aaaaaa</h1>
+  <p>bbbbbbbb</p>
+  <p>bbbbbbbb</p>
+  <p>bbbbbbbb</p>
+  <p>bbbbbbbb</p>
+  <p>bbbbbbbb</p> -->
+
+  <h1>轉場(transition)或稱為過渡</h1>
+  <ul>
+    <li>轉場是有兩組樣式之間漸進式的轉換過程，起始樣式與結束樣式，瀏覽器會將兩組樣式形成補間動畫。</li>
+    <li>必須要有狀態觸發的動作(狀態有很多種)，最常見的是 :hover 或是 media query 媒體查詢尺寸的改變也可以作轉場。</li>
+  </ul>
+
+  <h1>hover 狀態</h1>
+  <div class="hover">
+    <span>hover</span>
+  </div>
+  <div class="box">
+    <span>box</span>
+  </div>
+
+  <hr style="clear:both; margin:50px 0;position: relative;top:25px;">
+
+  <h1>checked 狀態</h1>
+  <label for="checked-me">CheckMe</label>
+  <input id="checked-me" type="checkbox">
+  <div class="sidebar">變得失去病毒臺灣民眾改善提示訊息對著訓練，打算登錄裝備高中見面專利公主失望同意還沒有比賽短信動態微。</div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03.selector</title>
+
+
+    <style>
+        /*
+        命名規則：
+          * 以.開頭
+          * 只允許使用英文、數字、連字號-、底練_
+          * 必須字元開始，不能數字開頭 錯誤示範：.1abx
+          * 可使用中文命名，但不要這樣做
+          * 有區分大小寫
+        */
+
+        .color {
+            color: blue;
+        }
+
+        .active {
+            color: blueviolet;
+        }
+
+        .font {
+            font-size: 30px;
+        }
+
+        /* id命名方式，與class僅差在開頭是 #字號 */
+        #header {
+            color: aqua;
+        }
+
+        #main {
+            color: blue;
+        }
+
+        #header,
+        #main,
+        #sidebar {
+            color: brown;
+        }
+
+        /* 後代選擇器為半形空白，選擇到兒子與孫子們 */
+
+        nav p {
+            color: blue;
+        }
+
+        /* 子代選擇器，只選到兒子 */
+        nav>p {
+            color: chocolate;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>CSS選擇器</h1>
+    <!-- class可以幫選擇器命名 -->
+    <h1 class="color">Class 選擇器</h1>
+
+    <h2>使用場景</h2>
+    <h3>1.相同元素但需要不同外觀時</h3>
+    <ul>
+        <li>eye is black.</li>
+        <li>eye is black.</li>
+        <li class="active">eye is black.</li>
+        <li>eye is black.</li>
+        <li>eye is black.</li>
+    </ul>
+
+    <h3>2.重複使用時</h3>
+    <p>Lorem ipsum dolor <a class="font" href="#"> 藍色星期一 </a>
+        sit amet consectetur adipisicing elit.<em class="font"> In voluptates deserunt inventore,</em>cumque magnam
+        laudantium voluptas facere tempora quis quisquam quia laboriosam atque maiores nihil<b class="font">
+            impeditdolore alias, magni explicabo?</b>
+    </p>
+
+
+    <h1>id選擇器</h1>
+    <ul>
+        <lu>一份文件裡，只允許一個獨一無二id名稱，就像身分證一樣不能重複</lu>
+        <lu>對程式來說，id是最簡單、最快速、最直接的選擇方式</lu>
+    </ul>
+
+    <h2>網頁區塊的名稱會以id來命名</h2>
+    <div id="header">這是header區塊</div>
+    <div id="main">這是main區塊</div>
+    <div id="sidebar">這次sidebar區塊</div>
+
+    <h1>後代選擇器與子代選擇器</h1>
+    <nav>
+        <p>我是內文喔!</p>
+        <div>
+            <p>我是內文喔!</p>
+        </div>
+    </nav>
+
+
+
+</body>
+
+</html>

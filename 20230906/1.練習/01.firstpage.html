@@ -1,0 +1,55 @@
+<!-- 根元素 root element -->
+<html>
+
+<head>
+    <!-- 標題 -->
+    <title>我的第一個網頁</title>
+    <style>
+        /* 選擇h1標籤，將文字變成紅色 */
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML</h1>
+    <p>HTML是負責結構、內容</p>
+
+    <h1>CSS</h1>
+    <p>CSS負責樣式、外觀</p>
+
+    <h1>JavaScript</h1>
+    <p>JS負責互動行為、事件觸發</p>
+
+    <img src="./html-css-js.jpg">
+    <br>
+    <br>
+
+    <button id="btn">顯示現在時間</button>
+    <div id="showTime"></div>
+
+    <script>
+        // 抓到id為btn的按鈕
+        /*這邊是多行標籤喔!!!
+        1
+        2
+        3
+        4
+        */
+        const btn = document.querySelector('#btn')
+        // 抓到id為ShowTime的div
+        const showTime = document.querySelector('#showTime')
+        // 點擊按鈕後，顯示時間
+        btn.onclick = function () {
+            showTime.innerText = new Date()
+        }
+
+
+    </script>
+
+    <a href="./02.tag.html">跳回標籤 </a>
+</body>
+
+
+</html>

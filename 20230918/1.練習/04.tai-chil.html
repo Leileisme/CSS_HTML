@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>太極</title>
+
+  <style>
+    .taichi {
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background-image: linear-gradient(90deg, #fff 1%, #fff 50%, #000 51%, #000 100%);
+      box-shadow: 0 0 20px 7px #555;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    .taichi::after {
+      content: "";
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #fff;
+
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    /* 上大白園 */
+
+    .yinyang {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #fff;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 下大黑園 */
+    .yinyang::before {
+      content: "";
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #000;
+
+      position: absolute;
+      top: 100%;
+      left: 0%;
+      transform: translateY();
+    }
+
+    /* 上小黑園 */
+    .yinyang::after {
+      content: "";
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #000;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="taichi">
+    <div class="yinyang"></div>
+  </div>
+</body>
+
+</html>

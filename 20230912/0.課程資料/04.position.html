@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      border: 1px solid #000;
+      padding: 0 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+      padding: 1rem;
+    }
+
+    .box1 {
+      background-color: pink;
+    }
+
+    .box2 {
+      background-color: palegreen;
+    }
+
+    .box3 {
+      background-color: paleturquoise;
+    }
+
+    .box4 {
+      background-color: blanchedalmond;
+    }
+
+    .relative {
+      /* 相對定位 */
+      position: relative;
+    }
+
+    .absolute {
+      /* 絕對定位 */
+      position: absolute;
+    }
+
+    /* top、bottom、left、right 指的是位移量 */
+    .top {
+      top: 0;
+    }
+
+    .bottom {
+      bottom: 0;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>position: relative</h1>
+    <ul>
+      <li>使用位移屬性(top、right、bottom、left)會以自己原來位置位移，保留自己原來的空間，不會被其他元素佔據。</li>
+      <li>沒有任何位移屬性，會留在原地不動，這種相對定位的作法，常作為 absolute 子元素位移目標的依據。</li>
+      <li>進入定位層級，因此可以使用 z-index。</li>
+    </ul>
+    <div class="box1">
+      <h1>box1</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+    <div class="box2">
+      <h1>box2</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+    <div class="box3 relative right top">
+      <h1>box3</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+    <div class="box4">
+      <h1>box4</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+  </div>
+  <div class="container relative">
+    <h1>position: absolute</h1>
+    <ul>
+      <li>沒有任何位移屬性，該元素會脫離正常流向，進入定位層級(可以使用 z-index)，後方元素依據 css 流動特性會到絕對定位元素的下方(被遮住)</li>
+      <li>如果祖先元素都找不到任何定位點(relative、absolute、fixed)，最後會以初始容器根元素(html)做為位移的目標</li>
+    </ul>
+    <div class="box1">
+      <h1>box1</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+    <div class="box2">
+      <h1>box2</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+    <div class="box3 absolute right top" style="width:300px;">
+      <h1>box3</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+    <div class="box4">
+      <h1>box4</h1>
+      <p>
+        日月潭專輯路線他們措施彩色作品業績所有人啟動，大部分衝擊比例效果總體用戶名等待意思笑容見到恢復剛才，那就重點開始檢查當我沒想到程式，觀眾歌曲和諧差不多手術將軍招商物品準備金錢賓館減肥健康無奈，種種情形資訊俱樂部處理一句如同專題，都說最好見面求助不怕，怎樣。
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

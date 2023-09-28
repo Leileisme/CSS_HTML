@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "微軟正黑體";
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #222;
+    }
+
+    h2 {
+      position: relative;
+      font-size: 3rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    h2 span {
+      color: #555;
+      transition: 0.5s;
+    }
+
+    h2:hover span {
+      color: #0f0;
+      text-shadow:
+        0 0 5px #0f0,
+        0 0 15px #0f0,
+        0 0 30px #0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <span style="transition-delay: 10ms;filter:hue-rotate(30deg)"></span> -->
+  <h2 class="text">
+    上一頁應該一旦，路線改進我的心積極十分人間，奇怪跟我停止擔心測試一隻批評女生體驗方式，即將語音也有指出線上才是小七很大家園巨大似乎大約要去因為，寫作不需要男性激烈集體媽媽電視依據畢業，建設主板怎麼樣有機會你就，三年互相歲月動態他們的第三受傷批發，家電想到。
+  </h2>
+
+  <script>
+    const text = document.querySelector('.text')
+    text.innerHTML = text.innerText
+      .split('') // 將字串轉為陣列
+      .map((char, i) => `<span style="transition-delay: ${i * 40}ms;filter:hue-rotate(${i * 30}deg)">${char}</span>`)
+      .join('') // 將陣列轉為字串
+  </script>
+</body>
+
+</html>

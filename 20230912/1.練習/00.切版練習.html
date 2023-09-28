@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習</title>
+
+    <style>
+        .container {
+            width: 1024px;
+            height: 768px;
+            border: 1px solid #000;
+            margin: auto;
+            font-family: '微軟正黑體';
+            text-align: center;
+            color: white;
+        }
+
+        .header {
+            width: 1024px;
+            height: 100px;
+            background-color: rgb(1, 12, 70);
+            align-content: center;
+            line-height: 100px;
+            overflow: hidden;
+        }
+
+        .left {
+            width: 200px;
+            height: 568px;
+            background-color: rgb(39, 155, 191);
+            align-content: center;
+            line-height: 568px;
+            float: left;
+
+        }
+
+        .right {
+            width: 824px;
+            height: 568px;
+            background-color: rgb(254, 180, 60);
+            align-content: center;
+            line-height: 568px;
+            float: left;
+        }
+
+        .footer {
+            width: 1024px;
+            height: 100px;
+            background-color: rgb(36, 36, 36);
+            align-content: center;
+            line-height: 100px;
+            /* overflow: hidden; */
+            /* 下面這個也可清除浮動 */
+            clear: both;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div>Header</div>
+        </div>
+
+        <div class="left">
+            <div>Left</div>
+        </div>
+
+        <div class="right">
+            <div>Right</div>
+        </div>
+
+        <div class="footer">
+            <div>Footer</div>
+        </div>
+    </div>
+</body>
+
+</html>
