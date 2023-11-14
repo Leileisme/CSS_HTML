@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid #ff0;
+    }
+
+    .bg {
+      background-image: url(./object-fit/01.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      block-size: cover;
+    }
+
+    .object-fit {
+      width: 100%;
+      height: 100%;
+      /* 讓圖片不變形 */
+      object-fit: cover;
+      /* 水平位移 垂直位移 : 一般都center */
+      object-position: 75% 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>背景圖</h1>
+  <p>調整背景與容器一樣大小時，可以設定 background-size:cover</p>
+  <div class="box bg"></div>
+
+
+  <h1>圖片 object-fit</h1>
+  <p>將圖片放到一個容器時，圖片太大且比例與容器不同，可以使用 object-fit</p>
+  <p>使用條件:</p>
+  <p>1.設定 width、heigh 100% 先佔滿容器 可能會造成圖片變形</p>
+  <p>2.對圖片使用 object-fit:cover ，再使用 object-position 調整位置</p>
+
+  <div class="box">
+    <img src="./object-fit/03.jpg" class="object-fit">
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 響應式需要的 meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 尺寸 576px 以下 */
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transition: 1s;
+    }
+
+    :root {
+      /* CSS 原生變數 */
+      --primary: #0d6efd;
+      --secondary: #6c757d;
+      --success: #198754;
+      --info: #0dcaf0;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      /* 隨大小改尺寸，這個會影響全部的字 */
+      /* font-size: calc(0.75rem + 1.125vw); */
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("https://picsum.photos/300/200/?random=10") no-repeat center/cover;
+    }
+
+
+    .container {
+      background-color: #fff;
+      width: 60%;
+      margin: 1rem auto;
+      padding: 15px;
+      border: 1px solid #000;
+    }
+
+    h1 {
+      color: var(--warning);
+      background-color: var(--success);
+      font-size: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar {
+      display: none;
+      width: 150px;
+      color: #fff;
+      border: 1rem;
+      padding: 1rem;
+      background: #000;
+      position: fixed;
+      left: 0;
+    }
+
+    .isShow {
+      display: none;
+    }
+
+    /* 媒體查詢    */
+    /*min-width 尺寸以下(包含) 樣式會變化 */
+    /* @media(max-width:768px) {} */
+
+    /* 裝置介於 576px 與 768px 之間的樣式 */
+    @media(min-width:576px) and (max-width:768px) {
+      body {
+        background: url("https://picsum.photos/300/200/?random=2") no-repeat center/cover;
+      }
+
+      .container {
+        border: 3px dashed #000;
+
+      }
+
+      h1 {
+        color: yellow;
+        background-color: var(--primary);
+        font-size: 1.5rem;
+      }
+    }
+
+    @media(min-width:992px) {
+      .sidebar {
+        display: block;
+      }
+
+      .isShow {
+        display: block;
+      }
+
+    }
+
+    /*min-width 尺寸以上(包含) 樣式會變化 */
+    @media(min-width:768px) {
+      body {
+        background: url("https://picsum.photos/300/200/?random=3") no-repeat center/cover;
+      }
+
+      .container {
+        border: 3px dashed #ff4444;
+      }
+
+      h1 {
+        color: rgb(0, 255, 76);
+        background-color: var(--primary);
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>響應式網頁設計
+      <span class="isShow">(Responsive web design,RWD)</span>
+    </h1>
+    <ul>
+      <li>1.響應式網頁設計，讓內容如流水般能適應各種形狀的容器，能在每個裝置尺寸正常瀏覽</li>
+      <li>2.css的媒體查詢(Media Query)負責想樣式最主要的工作</li>
+      <li>3.妹體查詢的斷點(breakpoint)為不同裝置尺寸設定通過的位置點，當通過設定的位置套用該尺寸的樣式</li>
+      <li>4.行動裝置優先的漸進增強的概念，基於小尺寸開始思考內容的設計模式</li>
+      <li>5.使用相對單位設定寬、高或大小(rem、%、vh、vw)，字體大小使用 rem，容器寬度使用 %</li>
+    </ul>
+
+  </div>
+
+  <div class="sidebar">
+    水晶現場為你士兵加大左右又是外資經歷深刻供應商具備，堅決材料認真豐富。
+    水晶現場為你士兵加大左右又是外資經歷深刻供應商具備，堅決材料認真豐富。
+    水晶現場為你士兵加大左右又是外資經歷深刻供應商具備，堅決材料認真豐富。
+    水晶現場為你士兵加大左右又是外資經歷深刻供應商具備，堅決材料認真豐富。
+  </div>
+
+</body>
+
+</html>
