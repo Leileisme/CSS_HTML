@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./CSS/bootstrap.css">
+
+  <style>
+    .row {
+      background: #eee;
+      margin-bottom: 1rem;
+    }
+
+    .row>*:nth-child(1) {
+      background: var(--bs-teal);
+    }
+
+    .row>*:nth-child(2) {
+      background: var(--bs-cyan);
+    }
+
+
+    .row>*:nth-child(3) {
+      background: var(--bs-yellow);
+    }
+
+
+    .row>*:nth-child(4) {
+      background: var(--bs-pink);
+    }
+
+
+    .row>*:nth-child(5) {
+      background: var(--bs-purple);
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- 
+  xs：1欄
+  md：2欄
+  lg：3欄
+  xl：4欄
+-->
+  <div class="container">
+    <h1>練習</h1>
+    <div class="row  row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+      <!-- <div class="card"> -->
+      <div class="col-6">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, totam?
+      </div>
+      <!-- </div> -->
+
+
+      <!-- <div class="card"> -->
+      <div class="col-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, totam?
+      </div>
+      <!-- </div> -->
+
+      <!-- <div class="card"> -->
+      <div class="col-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, totam?
+      </div>
+      <!-- </div> -->
+
+      <!-- <div class="card"> -->
+      <div class="col">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, totam?
+      </div>
+      <!-- </div> -->
+    </div>
+
+
+    <div class="container">
+      <h1>垂直對齊</h1>
+      <div class="row align-items-start" style="height: 100px;">
+        <div class="col">
+          One of three columns
+        </div>
+        <div class="col">
+          One of three columns
+        </div>
+        <div class="col">
+          One of three columns
+        </div>
+      </div>
+      <div class="row align-items-center" style="height: 100px;">
+        <div class="col">
+          One of three columns
+        </div>
+        <div class="col">
+          One of three columns
+        </div>
+        <div class="col">
+          One of three columns
+        </div>
+      </div>
+      <div class="row align-items-end" style="height: 100px;">
+        <div class="col">
+          One of three columns
+        </div>
+        <div class="col">
+          One of three columns
+        </div>
+        <div class="col">
+          One of three columns
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container">
+      <h1>Column breaks</h1>
+      <p>範例1</p>
+      <div class="row">
+        <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+        <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+
+        <!-- Force next columns to break to new line -->
+        <div class="w-100"></div>
+
+        <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+        <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p>範例2</p>
+      <div class="row">
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+
+        <!-- Force next columns to break to new line at md breakpoint and up -->
+        <!-- d-none 最小尺寸會消失 -->
+        <!-- d-md-block md 尺寸會出現 -->
+        <div class="w-100 d-none d-md-block"></div>
+
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>排序 Order classes</h1>
+      <div class="row">
+        <div class="col">
+          First in DOM, no order applied
+        </div>
+        <div class="col order-5">
+          Second in DOM, with a larger order
+        </div>
+        <div class="col order-1">
+          Third in DOM, with an order of 1
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <h1>欄的推移</h1>
+      <p>範例1</p>
+      <p>.offset-md-* 向右移動列</p>
+      <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p>範例2</p>
+      <div class="row">
+        <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">.col-sm-5 .offset-sm-2 .col-md-6 .offset-md-0</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+        <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">.col-sm-6 .col-md-5 .offset-md-2 .col-lg-6
+          .offset-lg-0</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Margin 通用類別</h1>
+      <p>ms 的 s 是 start、md 的 d 是 end</p>
+      <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 ms-auto">.col-md-4 .ms-auto</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+        <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+      </div>
+      <div class="row">
+        <div class="col-auto me-auto">.col-auto .me-auto</div>
+        <div class="col-auto">.col-auto</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>獨立 Column class</h1>
+    </div>
+    <div class="col-3 bg-light p-3 border">
+      .col-3: width of 25%
+    </div>
+    <div class="col-sm-9 bg-light p-3 border">
+      .col-sm-9: width of 75% above sm breakpoint
+    </div>
+    <br>
+
+
+    <div class="container px-4">
+      <h1>水平 gutters</h1>
+      <p>範例1 父元素 px-4</p>
+      <div class="row gx-5">
+        <div class="col">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+        <div class="col">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container overflow-hidden">
+      <p>範例1 父元素 overflow-hidden</p>
+      <div class="row gx-5">
+        <div class="col">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+        <div class="col">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ???? -->
+    <h1>垂直 gutters</h1>
+    <div class="container overflow-hidden">
+      <div class="row gy-5">
+        <div class="col-6">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 border bg-light">Custom column padding</div>
+        </div>
+      </div>
+    </div>
+    <script src="./JS/bootstrap.bundle.js"></script>
+</body>
+
+</html>
