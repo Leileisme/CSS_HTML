@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入 bootstarp.css 使用樣式 -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+    <h2>顯示標題</h2>
+    <h1 class="display-1">Display 1</h1>
+    <h1 class="display-2">Display 2</h1>
+    <h1 class="display-3">Display 3</h1>
+    <h1 class="display-4">Display 4</h1>
+    <h1 class="display-5">Display 5</h1>
+    <h1 class="display-6">Display 6</h1>
+  </div>
+
+  <div class="container">
+    <h2>表格</h2>
+    <table class="table table-striped table-success table-hover table-bordered border-primary">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>無框線</h3>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>table-sm 的 sm 指的是表格尺寸，不是 rwd</h3>
+    <table class="table table-bordered table-sm">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+
+    <h3>垂直對齊</h3>
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th scope="col" class="w-25">Heading 1</th>
+          <th scope="col" class="w-25">Heading 2</th>
+          <th scope="col" class="w-25">Heading 3</th>
+          <th scope="col" class="w-25">Heading 4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>This cell inherits <code>vertical-align: middle;</code> from the table</td>
+          <td>This cell inherits <code>vertical-align: middle;</code> from the table</td>
+          <td>This cell inherits <code>vertical-align: middle;</code> from the table</td>
+          <td>This here is some placeholder text, intended to take up quite a bit of vertical space, to demonstrate how
+            the vertical alignment works in the preceding cells.</td>
+        </tr>
+        <tr class="align-bottom">
+          <td>This cell inherits <code>vertical-align: bottom;</code> from the table row</td>
+          <td>This cell inherits <code>vertical-align: bottom;</code> from the table row</td>
+          <td>This cell inherits <code>vertical-align: bottom;</code> from the table row</td>
+          <td>This here is some placeholder text, intended to take up quite a bit of vertical space, to demonstrate how
+            the vertical alignment works in the preceding cells.</td>
+        </tr>
+        <tr>
+          <td>This cell inherits <code>vertical-align: middle;</code> from the table</td>
+          <td>This cell inherits <code>vertical-align: middle;</code> from the table</td>
+          <td class="align-top">This cell is aligned to the top.</td>
+          <td>This here is some placeholder text, intended to take up quite a bit of vertical space, to demonstrate how
+            the vertical alignment works in the preceding cells.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>響應式表格</h2>
+    <p>table-responsive-sm，0~575px 之間才會有捲動條。</p>
+    <div class="table-responsive-sm">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>圖片</h2>
+    <p>.img-fluid 的 max-width:100%，圖片的尺寸大小要比容器還大，才會有作用</p>
+    <div style="width:500px; height:500px" class="border border-1">
+      <img class="img-fluid" src="https://picsum.photos/800/800/?random=10">
+    </div>
+  </div>
+  <!-- 2. 引入 bootstrap.bundle.js 才可以使用元件 -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

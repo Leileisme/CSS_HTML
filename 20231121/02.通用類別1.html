@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 10%;
+    }
+
+    span {
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+
+    .row>div {
+      border: 3px dashed #ccc;
+      padding: 30px;
+      margin: 3px;
+    }
+
+    .d-flex {
+      color: #fff;
+      background-color: var(--bs-gray-200);
+      margin-bottom: 20px;
+      height: 200px;
+    }
+
+    .d-flex>:nth-child(1) {
+      background-color: var(--bs-purple);
+    }
+
+    .d-flex>:nth-child(2) {
+      background-color: var(--bs-yellow);
+    }
+
+    .d-flex>:nth-child(3) {
+      background-color: var(--bs-pink);
+    }
+
+    .d-flex>:nth-child(4) {
+      background-color: var(--bs-green);
+    }
+
+    .d-flex>:nth-child(5) {
+      background-color: var(--bs-cyan);
+    }
+
+    .d-flex>:nth-child(6) {
+      background-color: var(--bs-gray);
+    }
+
+    .box {
+      width: 300px;
+      height: 330px;
+      border: 3px solid #aaa;
+
+
+    }
+
+    .text-truncate-multiple {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-spacing: normal;
+      /* 使用 Webkit 引擎的盒子布局模型 */
+      display: -webkit-box;
+      /* 子元素的方向(內文) 垂直向下排列 */
+      -webkit-box-orient: vertical;
+      /* 顯示的文本行數 */
+      -webkit-line-clamp: 5;
+    }
+  </style>
+  <link rel="stylesheet" href="./CSS/bootstrap.css">
+</head>
+
+
+<body>
+
+  <div class="container ">
+    <div class="row ">
+      <div class="col ">
+        <span class="border bg-light border-4  mx-auto d-block"></span>
+      </div>
+
+      <div class="col">
+        <span class="border-top border-primary bg-info  mx-auto d-block"></span>
+      </div>
+
+      <div class="col">
+        <span class="border-end bg-dark border-danger border-4  mx-auto d-block"></span>
+      </div>
+
+      <div class="col">
+        <span class="border-bottom bg-success border-5 mx-auto d-block rounded-pill"></span>
+      </div>
+
+      <div class="col">
+        <span class="border-start border-info border-2 bg-danger border-4 mx-auto d-block"></span>
+      </div>
+
+      <div class="col">
+        <span class="border border-end-0 border-secondary rounded-circle mx-auto d-block"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h2>Display</h2>
+    <div class="row text-center">
+      <div class="col">
+        <div class=" d-sm-none d-md-none d-lg-none">xs</div>
+      </div>
+      <div class="col">
+        <div class="d-none d-sm-block d-md-none d-lg-none">sm</div>
+      </div>
+      <div class="col bg-dark">
+        <div class="d-sm-none d-md-block  text-info">飲料</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h1>Flex</h1>
+    <h2>水平</h2>
+    <p>.flex-row 設定水平方向 .flex-row-reverse 反轉</p>
+    <div class="d-flex flex-row">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2 flex-grow-1">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2 align-self-start">flex item 2</div>
+      <div class="p-2 align-self-center">flex item 3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>垂直</h2>
+    <p>.flex-column 設定水平方向 .flex-column-reverse 反轉</p>
+    <div class="d-flex flex-column">
+      <div class="p-2 ">flex item 1</div>
+      <div class="p-2 ">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+
+    <div class="d-flex flex-column-reverse">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2 ">flex item 2</div>
+      <div class="p-2 align-self-center">flex item 3</div>
+    </div>
+  </div>
+
+  <h2>支援 RWD 斷點尺寸</h2>
+  <div class="d-flex flex-row flex-sm-column flex-md-row-reverse flex-lg-column-reverse">
+    <div class="p-2">flex item 1</div>
+    <div class="p-2 flex-fill">flex item 2<br><br><br>
+    </div>
+    <div class="p-2 flex-fill ">flex item 3</div>
+  </div>
+
+
+  <h2>填滿</h2>
+  <p>.flex-fill 與 .flex-grow-1 作用相同；填滿剩餘空間 不等於均分 原始帶小不同/在剩餘空間放大的比例(在剩餘空間拿到幾份)</p>
+  <div class="d-flex flex-row">
+    <div class="p-2 lex-grow-1">flex item 1</div>
+    <div class="p-2 flex-grow-1">flex item 2</div>
+    <div class="p-2 lex-grow-1">flex item 3</div>
+  </div>
+  <div class="container">
+    <h2>文字斷行</h2>
+    <p>.box 需設寬度</p>
+    <p class="text-break">
+      mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+    </p>
+  </div>
+
+  <br>
+  <h1>溢出</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="box overflow-auto m-auto bg-dark text-light">
+          <h2 class="text-capitalize  fw-bolder">overflow-auto</h2>
+          <p>
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="box overflow-scroll m-auto  bg-dark text-light">
+          <h2>overflow-scroll</h2>
+          <p style="width: 500px;">
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="box overflow-scroll m-auto  bg-dark text-light">
+          <h2>overflow-scroll</h2>
+          <p>
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="box overflow-hidden m-auto  bg-dark text-light">
+          <h2>overflow-hidden</h2>
+          <p>
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            中港路他人把我反應成熟組合帶來合理交換有一些龍岡報告站內，旁邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="box overflow-visible m-auto  bg-dark text-warning">
+          <h2>overflow-visible</h2>
+          <h3>超出範圍的讓它溢出</h3>
+          <p style="width: 330px;">
+            中港路他人邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <h2>間隔</h2>
+    <div class="row">
+      <div class="col ">
+        <div class="box p-3">
+          <h3>p-3</h3>
+          <p>中港路他人邊農民日果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            次數看見空中程式風險，昨天成果自己提示麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+          </p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="box ms-5 me-sm-4">
+          <h3>ms-5 me-sm-4</h3>
+          <p>中港路他人邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="box px-4">
+          <h3>px-4</h3>
+          <p>中港路他人邊農民日報，低價高手次數看見空中程式風險，昨天成果自己提示訊息任何人，你說當然一切怎麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+            次數看見空中麼辦下降上升躺在按照出發高中算是睡覺花蓮，歡迎光臨強烈回頭，原來感興趣也能研究，主人感到，圖文每日，快樂參考夢。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <h1>清除浮動</h1>
+    <p>用於解決浮動元素引起的父元素高度塌陷（父元素無法包裹浮動元素而導致高度為零）</p>
+    <h2>clearfix</h2>
+    <div class="bg-dark clearfix">
+      <div class="box bg-danger float-start"></div>
+      <div class="box bg-warning float-end"></div>
+    </div>
+
+
+    <div class="bg-info clearfix mt-5">
+      <button type="button" class="btn btn-secondary float-start">Example Button floated left</button>
+      <button type="button" class="btn btn-secondary float-end">Example Button floated right</button>
+    </div>
+  </div>
+
+  <h2>overflow</h2>
+  <div class="bg-dark overflow-hidden">
+    <div class="box bg-danger float-start"></div>
+    <div class="box bg-warning float-end"></div>
+  </div>
+
+
+
+  <div class="container mt-5">
+    <h1>文字截斷 text-truncate(單行)</h1>
+    <p>要給文字寬度</p>
+    <p class="text-truncate w-25">這時有限力量士兵存在全體綠色有限公司最近會議一陣證件，我都案件螢幕進了不良微笑合理演唱會小說協議相互，必然商業五金附近責任主席日本，預覽等人特別是都要可以說營</p>
+    <br>
+    <!-- ??? 待更新 (要自己設定) -->
+    <h1>文字截斷 text-truncate(多行)</h1>
+    <p>要給文字寬度</p>
+    <p class="text-truncate-multiple w-25">
+      這時有限力量士兵存在全體綠色有限公司最近會這時有限力量士兵存在全體綠色有限公司最近會這時有限力量士兵存在全體綠色有限公司最近會議一陣證件，我都案件螢幕進了不良微笑合理演唱會小說協議相互，必然商業五金附近責任主席日本，預覽等人特別是都要可以說營
+    </p>
+
+  </div>
+</body>
+
+</html>

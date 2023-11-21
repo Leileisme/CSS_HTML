@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入 bootstarp.css 使用樣式 -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+    .container {
+      margin-bottom: 30px;
+    }
+
+    span {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+
+    .row>div {
+      height: 100px;
+      border: 1px dashed #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .d-flex {
+      color: white;
+      background-color: var(--bs-gray-200);
+      margin-bottom: 20px;
+      height: 200px;
+    }
+
+    .d-flex>:nth-child(1) {
+      background-color: var(--bs-purple);
+    }
+
+    .d-flex>:nth-child(2) {
+      background-color: var(--bs-yellow);
+    }
+
+    .d-flex>:nth-child(3) {
+      background-color: var(--bs-pink);
+    }
+
+    .d-flex>:nth-child(4) {
+      background-color: var(--bs-green);
+    }
+
+    .d-flex>:nth-child(5) {
+      background-color: var(--bs-cyan);
+    }
+
+    .d-flex>:nth-child(6) {
+      background-color: var(--bs-gray);
+    }
+
+    /* 自創一個 flex-1 當作平均欄寬使用 */
+    .flex-1 {
+      flex: 1;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 5px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Border</h2>
+    <h3>增加</h3>
+    <div class="row">
+      <div class="col">
+        <span class="border border-primary border-1 rounded rounded-3"></span>
+      </div>
+      <div class="col">
+        <span class="border-top border-2"></span>
+      </div>
+      <div class="col">
+        <span class="border-end border-3"></span>
+      </div>
+      <div class="col">
+        <span class="border-bottom border-4"></span>
+      </div>
+      <div class="col">
+        <span class="border-start border-5"></span>
+      </div>
+    </div>
+
+    <h3>減少</h3>
+    <div class="row">
+      <div class="col">
+        <span class="border border-0"></span>
+      </div>
+      <div class="col">
+        <span class="border border-top-0 border-secondary"></span>
+      </div>
+      <div class="col">
+        <span class="border border-end-0 border-info"></span>
+      </div>
+      <div class="col">
+        <span class="border border-bottom-0 border-danger"></span>
+      </div>
+      <div class="col">
+        <span class="border border-start-0 border-warning"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Display</h2>
+    <div class="d-block">XS</div>
+    <div class="d-sm-block">sm</div>
+    <div class="d-none d-sm-block d-md-none d-lg-inline d-xl-none bg-primary text-white">飲料</div>
+  </div>
+
+  <div class="container">
+    <h2>Flex</h2>
+    <h2>水平</h2>
+    <p>.flex-row 設定水平方向，.flex-row-reverse 反轉</p>
+    <div class="d-flex flex-row">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+
+    <h2>垂直</h2>
+    <p>.flex-column 設定垂直方向，.flex-column-reverse 反轉</p>
+    <div class="d-flex flex-column">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <div class="d-flex flex-column-reverse">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+
+    <h2>屬性支援 RWD 斷點尺寸</h2>
+    <div class="d-flex flex-row flex-sm-row-reverse flex-md-column flex-lg-column-reverse">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+
+    <h2>填滿</h2>
+    <p>flex-fill 不是平均欄寬，寬度會隨著內容變寬</p>
+    <div class="d-flex">
+      <div class="p-2 flex-fill">Flex item Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, architecto!
+        Flex item Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, architecto!
+      </div>
+      <div class="p-2 flex-fill">Flex item</div>
+      <div class="p-2 flex-fill">Flex item</div>
+    </div>
+
+    <h3>flex-fill 與 flex-grow-1 相同作用</h3>
+    <div class="d-flex">
+      <div class="p-2 flex-grow-1">Flex item Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, architecto!
+        Flex item Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, architecto!
+      </div>
+      <div class="p-2 flex-grow-1">Flex item</div>
+      <div class="p-2 flex-grow-1">Flex item</div>
+    </div>
+
+    <h2>平均欄寬</h2>
+    <p>自訂一個 .flex-1 作為平均欄寬的 class</p>
+    <div class="d-flex">
+      <div class="p-2 flex-1">Flex item Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, architecto!
+        Flex item Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, architecto!
+      </div>
+      <div class="p-2 flex-1">Flex item</div>
+      <div class="p-2 flex-1">Flex item</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="d-flex">
+      <div class="flex-shrink-0">
+        <img src="https://picsum.photos/300/200/?random=10">
+      </div>
+      <div class="flex-grow-1 ms-3">
+        This is some content from a media component. You can replace this with any content and adjust it as needed.
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>浮動</h2>
+    <p>float-left(BS4) 更動為 float-start(BS5)</p>
+    <p>float-right(BS4) 更動為 float-end(BS5)</p>
+    <p>float 有響應式斷點</p>
+    <div class="bg-primary overflow-hidden">
+      <img class="float-start" src="https://picsum.photos/300/200/?random=10">
+      <img class="float-start" src="https://picsum.photos/300/200/?random=10">
+      <img class="float-start" src="https://picsum.photos/300/200/?random=10">
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>文字斷行</h2>
+    <p>box 須設定寬度。</p>
+    <p>使用 .text-break 設定 word-wrap: break-word 和 word-break: break-word 預防長文破壞元件的排版。</p>
+    <p class="text-break w-25 bg-info">
+      mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+  </div>
+
+  <div class="container">
+    <h2>overflow-auto</h2>
+    <p>自動偵測是否依內容寬度或高度溢出而出現捲動軸</p>
+    <p>水平捲動軸出現的依據是需要內容寬度，且寬度大於外容器寬度，才會顯示。</p>
+    <div class="box overflow-auto">
+      <p style="width:500px;">
+        疾病解壓密碼儘管大多我想，新技術一樣簡介五年不禁所謂空氣政策看法，高雄你們的能源怪物外觀，身邊輸出負責人電視主板利潤地點瞬間俱樂部培養眼睛任何人傳說，減少取得總體刺激盯着一邊上網，眼前儘管開發小區付出時間什麼是建築即可吃飯外面污染及時服務，完善培養出售一。
+        熟悉論壇交通鮮花右鍵放在，高級龍岡形勢及時靈魂台鐵有時，指出從此看來，美國第二章水溝寫作面議不肯有所它們預測尤其是命運一本，有可能一人透露不去日月潭兒子壓縮十大發達理論授權方式，機關對你我把文件大小的錢變得導演，落實太多看法擁有處於位元上下明白或是方式來看更大絶不老大專家，早上參觀部分美國尤其是期限我們所以差距內置，變成商標畢竟，航空責任聯想儘快螢幕來自版本官員出售是從，逐步輕輕虛擬歷史指定記得歌詞轉身上帝不肯特別是難以備案，受到操作系統職務，回家怎麼專輯，突然數字程度給予對付如果你，上路指定亞洲效益享受三個指導表演成績空間，蘋果背景她說招商所以我說空氣夥伴，客人動態，而是發表眼淚，一番相當。
+      </p>
+    </div>
+
+    <h2>overflow-hidden</h2>
+    <p>內容會被修剪隱藏起來</p>
+    <div class="box overflow-hidden">
+      <p style="width:500px;">
+        疾病解壓密碼儘管大多我想，新技術一樣簡介五年不禁所謂空氣政策看法，高雄你們的能源怪物外觀，身邊輸出負責人電視主板利潤地點瞬間俱樂部培養眼睛任何人傳說，減少取得總體刺激盯着一邊上網，眼前儘管開發小區付出時間什麼是建築即可吃飯外面污染及時服務，完善培養出售一。
+        熟悉論壇交通鮮花右鍵放在，高級龍岡形勢及時靈魂台鐵有時，指出從此看來，美國第二章水溝寫作面議不肯有所它們預測尤其是命運一本，有可能一人透露不去日月潭兒子壓縮十大發達理論授權方式，機關對你我把文件大小的錢變得導演，落實太多看法擁有處於位元上下明白或是方式來看更大絶不老大專家，早上參觀部分美國尤其是期限我們所以差距內置，變成商標畢竟，航空責任聯想儘快螢幕來自版本官員出售是從，逐步輕輕虛擬歷史指定記得歌詞轉身上帝不肯特別是難以備案，受到操作系統職務，回家怎麼專輯，突然數字程度給予對付如果你，上路指定亞洲效益享受三個指導表演成績空間，蘋果背景她說招商所以我說空氣夥伴，客人動態，而是發表眼淚，一番相當。
+      </p>
+    </div>
+
+    <h2>overflow-visible</h2>
+    <p>元素預設值，內容會被顯示出來，溢出元素框外面</p>
+    <div class="box overflow-visible">
+      <p style="width:500px;">
+        疾病解壓密碼儘管大多我想，新技術一樣簡介五年不禁所謂空氣政策看法，高雄你們的能源怪物外觀，身邊輸出負責人電視主板利潤地點瞬間俱樂部培養眼睛任何人傳說，減少取得總體刺激盯着一邊上網，眼前儘管開發小區付出時間什麼是建築即可吃飯外面污染及時服務，完善培養出售一。
+        熟悉論壇交通鮮花右鍵放在，高級龍岡形勢及時靈魂台鐵有時，指出從此看來，美國第二章水溝寫作面議不肯有所它們預測尤其是命運一本，有可能一人透露不去日月潭兒子壓縮十大發達理論授權方式，機關對你我把文件大小的錢變得導演，落實太多看法擁有處於位元上下明白或是方式來看更大絶不老大專家，早上參觀部分美國尤其是期限我們所以差距內置，變成商標畢竟，航空責任聯想儘快螢幕來自版本官員出售是從，逐步輕輕虛擬歷史指定記得歌詞轉身上帝不肯特別是難以備案，受到操作系統職務，回家怎麼專輯，突然數字程度給予對付如果你，上路指定亞洲效益享受三個指導表演成績空間，蘋果背景她說招商所以我說空氣夥伴，客人動態，而是發表眼淚，一番相當。
+      </p>
+    </div>
+
+    <h2>overflow-scroll</h2>
+    <p>不管有沒有溢出，都會出現捲動軸</p>
+    <div class="box overflow-scroll">
+      <p style="width:500px;">
+        疾病解壓密碼儘管大多我想，新技術一樣簡介五年不禁所謂空氣政策看法，高雄你們的能源怪物外觀，身邊輸出負責人電視主板利潤地點瞬間俱樂部培養眼睛任何人傳說，減少取得總體刺激盯着一邊上網，眼前儘管開發小區付出時間什麼是建築即可吃飯外面污染及時服務，完善培養出售一。
+      </p>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h2>間隔</h2>
+    <div class="box pt-3 ps-3 ps-lg-5 pe-lg-5">
+      戰士宣佈大型防治醫藥別人諮詢近日公佈求助，那天得分自主第二章暫時執行購物表情破解設施女朋友強調這場。
+    </div>
+    <div class="box mt-1 mt-md-3 mt-lg-6"></div>
+  </div>
+  <!-- 2. 引入 bootstrap.bundle.js 才可以使用元件 -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

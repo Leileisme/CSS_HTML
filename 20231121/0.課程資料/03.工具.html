@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入 bootstarp.css 使用樣式 -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+    }
+
+    .text-truncate-mutiple {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h2>清除浮動</h2>
+    <h3>clearfix</h3>
+    <div class="bg-dark clearfix">
+      <div class="box bg-danger float-start"></div>
+      <div class="box bg-success float-end"></div>
+    </div>
+
+    <h3>overflow</h3>
+    <div class="bg-dark overflow-hidden">
+      <div class="box bg-danger float-start"></div>
+      <div class="box bg-success float-end"></div>
+    </div>
+
+    <h3>flow-root</h3>
+    <!-- BFC => Block Formatting Context  -->
+    <!-- flow-root 是 BFC 家族成員之一 -->
+    <div class="bg-dark" style="display:flow-root">
+      <div class="box bg-danger float-start"></div>
+      <div class="box bg-success float-end"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>文字截斷</h2>
+    <div class="row">
+      <div class="w-25 text-truncate">
+        This text is quite long, and will be truncated once displayed.
+      </div>
+    </div>
+
+    <span class="d-inline-block text-truncate" style="max-width: 300px;">
+      This text is quite long, and will be truncated once displayed.
+    </span>
+
+    <h2>多行截斷</h2>
+    <div class="w-25">
+      <p class="text-truncate-mutiple">
+        夏天女孩擔任還可以頓時系列保存促銷外觀法人不太，能不能重新影視利潤敵人此刻費用人物集團，支付比如產品圍繞婚姻教育活動為什麼，研究生農村修改本帖，哥哥碩士長沙地說忍不住桌面，網頁幸福群發女友道理高中對於，地理兩次用來體會合適經銷商，更新時間應用對於，感覺更。
+      </p>
+    </div>
+  </div>
+  <!-- 2. 引入 bootstrap.bundle.js 才可以使用元件 -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
