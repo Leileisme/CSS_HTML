@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元件-導覽列</title>
+  <link rel="stylesheet" href="./CSS/bootstrap.css">
+  <style>
+    :root {
+      --bs-coffee-rgb: 60, 40, 0;
+    }
+
+    .bg-coffee {
+      --bs-bg-opacity: 1;
+      background-color: rgba(var(--bs-coffee-rgb), var(--bs-bg-opacity)) !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar-expand-* -->
+  <!-- 通過某中斷點 展開導覽列，若沒有這個 class 會永遠處於收合狀態 -->
+  <!-- navbar-dark 文字白色，需搭配深色背景，例如 .bg-dark 或自訂深色 class：範例自訂 .bg-coffee -->
+  <!-- bg-dark 背景深色，需搭配淺色文字 -->
+  <!-- fixed-top 固定在上方或下方 (fixed-bottom) -->
+
+  <!-- 對調漢堡按鈕跟 logo 結構的位置，摺疊狀態會互換位置 -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-coffee fixed-top">
+    <!-- container-fluid 滿版 container 固定寬度 -->
+    <div class="container-fluid">
+      <!-- navbar-brand 網站Logo 可放文字或圖片 -->
+      <a class="navbar-brand" href="#">Navbar</a>
+      <!-- navbar-toggler 漢堡按鈕 -->
+      <!-- data-bs-toggle="collapse" 指啟動 ./JS/bootstrap.bundle.js 的摺疊功能-->
+      <!-- data-bs-target="#navbarSupportedContent" 必須和這疊內容的id對應 -->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- 摺疊的內容 id 需與 data-bs-target 對應 -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <section id="section" style="margin-top: 60px;">
+    <div class="container">
+      <h1 class="text-center">title</h1>
+      <p>
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+        鍵盤還能公共正確寂寞客服走了學生懷疑之下，一絲仍然自由手指告訴傷害福建原理，不錯靈活實用，球員形式瘋狂投入不夠背後一塊語文引進部落郵件曾經搭配，坐在律師兩年眼淚好激動本次一番對方放心無關，教程一大就能核心歲月，成績儘管基地形象手段，公共臺東球員區別國產厲。
+      </p>
+    </div>
+  </section>
+
+  <script src="./JS/bootstrap.bundle.js"></script>
+</body>
+
+</html>
