@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./CSS/bootstrap.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">泰山咖啡</a>
+
+      <!-- 漢堡按鈕 -->
+      <!-- aria-controls="lei" 盲人閱讀 -->
+      <!-- data-bs-toggle 觸發功能 -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#lei" aria-controls="lei"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-start show" id="lei" aria-labelledby="leiLabel" data-bs-backdrop="false"
+        data-bs-scroll="true">
+        <div class="offcanvas-header ">
+          <h5 class="offcanvas-title" id="leiLabel">菜單</h5>
+          <!-- 看這個旁邊的格子要不要開關 -->
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+
+          <div class="container">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a href="#" class="nav-link"> An item</a>
+              </li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link"> An item</a>
+              </li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link"> An item</a>
+              </li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link"> An item</a>
+              </li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link"> An item</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script src="./JS/bootstrap.bundle.js"></script>
+</body>
+
+</html>

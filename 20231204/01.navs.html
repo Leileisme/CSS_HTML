@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./CSS/bootstrap.css">
+</head>
+
+<body>
+
+  <div class="container mt-5 mb-5">
+    <h1>導覽列與</h1>
+    <p></p>
+    <ul class="nav justify-content-center nav-tabs">
+      <li class="nav-item ">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+
+
+    <hr>
+    <ul class="nav flex-column nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+    <hr>
+    <div class="cpntainer">
+      <h1>填充和對齊</h1>
+      <p> .nav 有兩種寬度擴展用的 class .nav-fill 和 .nav-justified</p>
+      <h2>.nav-fill</h2>
+      <p>每個 .nav-fill 不是等寬</p>
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active " aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link bg-warning" href="#">Much longer nav link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-danger" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled bg-success">Disabled</a>
+        </li>
+      </ul>
+
+      <h2>.nav-justified</h2>
+      <p>每個 .nav-fill 是等寬</p>
+      <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-warning" href="#">Much longer nav link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-danger" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled bg-success">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Dropdown 下拉選單</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <h1>JavaScript 行為</h1>
+    <h3>使用 data 屬性設定</h3>
+    <ul>
+      <li>先確認使用 .nav-tabs 或 .nav-pills</li>
+      <!-- pill功能是??? -->
+      <li>如果要呈現分頁頁籤加上 .data-bs-toggle="pill"，啟動 pill 功能 </li>
+      <li>分頁選單區按鈕加上 data-bs-toggle="tab" 啟動 tab 功能</li>
+      <li>data-bs-target 的值要對應內容呈現區的 id，例如 #home 對應 id="home" </li>
+    </ul>
+    <br>
+    <!-- 分頁選單區 -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+          role="tab" aria-controls="home" aria-selected="true">Home</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+          role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+          role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+      </li>
+    </ul>
+    <!-- 內容呈現區   data-bs-target 對到 id-->
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">第一頁</div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">第二頁</div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">第三頁</div>
+    </div>
+    <hr>
+    <!-- 分頁選單區 -->
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="pill" data-bs-target="#home1" type="button"
+          role="tab" aria-controls="home" aria-selected="true">Home</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="pill" data-bs-target="#profile1" type="button"
+          role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="pill" data-bs-target="#contact1" type="button"
+          role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+      </li>
+    </ul>
+    <!-- 內容呈現區   data-bs-target 對到 id-->
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">第一頁</div>
+      <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">第二頁</div>
+      <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab">第三頁</div>
+    </div>
+
+  </div>
+  <script src="./JS/bootstrap.bundle.js"></script>
+</body>
+
+</html>

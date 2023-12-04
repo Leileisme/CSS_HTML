@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入 bootstarp.css 使用樣式 -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>導覽與頁籤</h1>
+    <p>.nav 本身是彈性盒，彈性盒的屬性、bootstrap 提供的 class 皆可使用。</p>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>垂直對齊</h1>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>分頁標籤</h1>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+    <h2>膠囊狀</h2>
+    <p>.avtive 作用在該選項上，.disable 禁用</p>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>填充和對齊</h1>
+    <p>.nav 有兩種寬度擴展用的 class，.nav-fill 和 .nav-justified</p>
+    <h2>.nav-fill</h2>
+    <p>每個 .nav-item 不是等寬。</p>
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link bg-primary" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-danger" href="#">Much longer nav link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-warning" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-success">Disabled</a>
+      </li>
+    </ul>
+    <h2>.nav-justified</h2>
+    <p>每個 .nav-item 是等寬。</p>
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link bg-primary" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-danger" href="#">Much longer nav link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-warning" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-success">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h2>JavaScript 行為</h2>
+    <h3>使用 data 屬性設定</h3>
+    <ul>
+      <li>先確認使用 .nav-tabs 或 .nav-pills</li>
+      <li>如果要呈現分頁頁籤加上 data-bs-toggle="tab" 啟動 tab 功能</li>
+      <li>如果要呈現膠囊狀加上 data-bs-toggle="pill"，啟動 pill 功能</li>
+      <li>data-bs-target 的值要對應內容呈現區的 id，例如 #home 對應 id="home"</li>
+      <li></li>
+    </ul>
+    <!-- 分頁選單區 -->
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#home">Home</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#profile">Profile</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#contact">Contact</button>
+      </li>
+    </ul>
+    <!-- 內容呈現區 -->
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="home">
+        便是或者上路事業重複聯繫電話是啊國際呵呵，完整不可以一下子以往最好的右鍵，哈哈開通網頁一是推薦舉報教學常常究竟你的，通過特殊，許多感謝包括姑娘下載不能下載上午房屋得到首先，留學播放小遊戲她說昨日難道各項職務突然但是同樣大連，自動明天承受有所面向它的政府確。
+      </div>
+      <div class="tab-pane fade" id="profile">
+        群眾歐洲教程姑娘欣賞，早就職業，集中參與告訴我下一頁空調上午一定重新加入時間幾次那些，核心整體損失玩家角色留學，故意戰鬥國內外黑暗組合機關投入法國極大共同指標，溫暖雙手果然遊戲動物是有我的心不敢快車體系，姐姐消費輸出其它眼淚，指定打電話，該公司可以說旅遊。
+      </div>
+      <div class="tab-pane fade" id="contact">
+        地下說是品質進來不見公里求職，可能會自己處理器採購日本名字抓住，辦法新聞擔心照片旅遊英雄消失國際解決關閉學科望着，生氣主要為主努力會議滿意可惜軟體版本評論，允許模擬不是當然一件，用於收購先進教育，打了而在和他部落本文天堂，年齡力量聯繫方式，直接有意為何臺。
+      </div>
+    </div>
+  </div>
+  <!-- 2. 引入 bootstrap.bundle.js 才可以使用元件 -->
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
