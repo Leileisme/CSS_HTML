@@ -1,0 +1,259 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	list-style: none;
+}
+
+.container {
+	width: 75%;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 20px 0 20px;
+}
+
+p {
+	margin-bottom: 1rem;
+}
+
+section {
+	margin-bottom: 2rem;
+}
+
+/* CSS 原生變數 */
+:root {
+	--primary: #0d6efd;
+	--secondary: #6c757d;
+	--success: #198754;
+	--info: #0dcaf0;
+	--wrarning: #ffc107;
+	--danger: #dc3545;
+}
+
+// 單行註解，不會編譯出去
+/* 多行註解，會編譯出去 */
+
+/* SCSS 變數 */
+// 只要符合 CSS 規範的值可以設定為變數
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+
+$white: #fff;
+$width: 200px;
+$gradient: linear-gradient(0deg, rgb(0, 0, 50) 0%, rgb(0, 50, 200) 50%, rgb(0, 0, 255) 100%);
+$border: 5px solid #fff;
+$border-radius: 0.5rem;
+$padding: 0.5rem;
+$margin-bottom: 0.5rem;
+$shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+
+h1 {
+	background: $gradient;
+	color: $white;
+	border: $border;
+	border-radius: $border-radius;
+	padding: $padding;
+	box-shadow: $shadow;
+	margin-bottom: $margin-bottom;
+}
+
+/* 02 流程控制 */
+// $number: 3;
+// random() 為 Sass 內建函式提供亂數功能，範例 1~3 random
+$number: random(3);
+.mybox {
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@if ($number == 1) {
+		background-color: red;
+	} @else if($number == 2) {
+		background-color: blue;
+	} @else {
+		background-color: green;
+	}
+
+	$stand: '白金之星';
+	$master: '承太郎';
+	/* 使用 and 兩運算式條件都成立 */
+	@if ($stand== '白金之星' and $master== '承太郎') {
+		color: white !important;
+	} @else {
+		color: yellow !important;
+	}
+	/* 使用 or 兩運算式其中之一成立，不能用 || */
+	$isHeight: '高';
+	$isRich: '富';
+	$isHandsome: '帥';
+	@if ($isHeight == '高' or $isRich == '窮' or $isHandsome == '不帥') {
+		font-weight: bolder;
+		font-size: 30px;
+	}
+
+	$box-width: 50px;
+	@if not($box-width==100px) {
+		border: 10px dashed yellow;
+	}
+
+	$mySpacing: 20px;
+	/* 內建提供的函式，類似三元運算子，函式沒有 @ */
+	outline: if($mySpacing > 10px, 10px solid green, 10px solid black);
+}
+
+// 包含 end，例子有 1~3
+@for $i from 1 through 3 {
+	// 插值語法用 #{}
+	.through-#{$i} {
+		width: 50px * $i;
+		height: 50px * $i;
+		display: inline-block;
+		background: #aaa;
+	}
+}
+// 不包含 end，例子只有 1~2，不包含 3
+@for $i from 1 to 3 {
+	.to-#{$i} {
+		width: 50px * $i;
+		height: 50px * $i;
+		display: inline-block;
+		background: #333;
+	}
+}
+
+/* 嵌套巢狀(nested) */
+#section03 {
+	.menu {
+		margin-top: 2rem;
+		padding: 0;
+		font-size: 0;
+		li {
+			display: inline-block;
+			font-size: 1rem;
+			width: 100px;
+			text-align: center;
+			a {
+				display: block;
+				background: black;
+				color: white;
+				text-decoration: none;
+				padding: 0.5rem;
+				// &符號可以表示父層選擇器
+				&:hover {
+					color: yellow;
+					background: darkslateblue;
+				}
+			}
+			& + li {
+				border-left: 1px solid #fff;
+			}
+		}
+	}
+	li + li {
+		border-left: 1px solid yellow;
+	}
+}
+
+// & 與 clearfix
+.clearfix {
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+// 建立三欄式版面
+/*
+  嵌套有利有弊，嵌套階層不控制，會產生 CSS 選擇器過長，檔案會變大
+  因此在嵌套時，思考如何快速有效選擇到目標，
+  一般使用 #id 限制一個大區塊，再選擇裡面的某個元件區塊，再選擇到目標
+*/
+#exercise {
+	.row {
+		display: flex;
+	}
+
+	.col {
+		width: 31.333333%;
+		margin: 1%;
+		border: 1px solid #333;
+		padding: 1rem;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		transition: 0.5s;
+		.card {
+			.card-body {
+				a {
+					text-decoration: none;
+					color: red;
+					&:hover {
+						transform: translateY(-20px);
+					}
+				}
+			}
+		}
+	}
+
+	.card {
+		a {
+			text-decoration: none;
+			color: red;
+			&:hover {
+				transform: translateY(-20px);
+			}
+		}
+	}
+
+	img {
+		max-width: 100%;
+	}
+}
+
+/* 04.extend(繼承、擴展) % */
+/*  使用 CSS 選擇器擴展，擴展後會被編譯到 CSS 檔案中 */
+// .extend {
+// 	width: 100px;
+// 	height: 100px;
+// 	float: left;
+// }
+
+/*  使用佔位選擇器 % 擴展，擴展後不會被編譯到 CSS 檔案中 */
+/* 擴展後的樣式會被群組打包在一起 */
+%extend {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+
+#extend {
+	margin-top: 1rem;
+	overflow: auto;
+}
+
+.box1 {
+	@extend %extend;
+	background: red;
+}
+.box2 {
+	@extend %extend;
+	background: green;
+}
+.box3 {
+	@extend %extend;
+	background: blue;
+}
