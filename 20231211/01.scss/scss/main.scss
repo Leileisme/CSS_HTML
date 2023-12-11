@@ -1,0 +1,22 @@
+/* partials 概念拆分 scss 檔，組合成自己的 scss 結構 */
+
+/* 
+1. 底線 _ 開頭來命名 
+2. 用 @import 引入，底線；副檔名可以不寫，Sass 
+會判斷是否為 partials，partials不會被編譯成css
+3.通常會用一支入口來引入，例如:main.css 
+4.partials 順序很重要，例如function、variable、mixin 需先載入 才能確保能被使用
+*/
+
+/* 函式 */
+@import 'function';
+// @import '_function.scss';
+
+/* 變數 */
+@import 'variable';
+
+/* mixins */
+@import 'mixin';
+
+/* layout */
+@import 'layout';

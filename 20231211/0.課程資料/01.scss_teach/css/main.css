@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* partials 概念指拆分 scss 檔，組合成自己的 Scss 結構 */
+/*
+  1. 底線 _ 開頭來命名
+  2. 用 @import 引入，底線、副檔名可以不寫，Sass 會判斷是否為 partials，partials 不會被編譯成 css
+  3. 通常會用一支入口來引入，例如 main.scss
+  4. partials 載入順序很重要，例如 functions、variables、mixins 需先被載入，才能確保能被使用
+*/
+/* 函式 */
+/* 這裡是函式 */
+/* 變數 */
+/* 這裡是變數 */
+/* mixins */
+/* mixins 的入口 */
+/* mixins box-shadow */
+/* mixins button */
+/* mixins rwd */
+/* components */
+/* 元件的入口 */
+/* 元件-card */
+/* 元件-carousel */
+/* 元件-modal */
+/* layout */
+/* navbar */
+/* section01 */
+/* section02 */
+/* section03 */
+/* footer */
