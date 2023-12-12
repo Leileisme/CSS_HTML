@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <!-- 1.設定 swiper css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    .swiper {
+      height: 350px;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-pagination-bullet {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+      color: #000;
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .swiper-pagination-bullet-active {
+      color: #fff;
+      background: red;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Swiper</h1>
+    <!-- 3.設定 swiper 結構 -->
+    <!-- swiper 主體 -->
+    <div id="kaifu" class="swiper">
+      <div class="swiper-wrapper">
+        <!-- 輪播的 Slide items -->
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=1">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=2">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=3">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=4">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=5">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=6">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=7">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=8">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=9">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=10">
+        </div>
+      </div>
+      <!-- 分頁 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 上一頁、下一頁 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+
+  </div>
+  <!-- 2.設定 swiper 主程式 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // 初始化 swiper
+    /*
+      兩個參數
+      第一參數: 抓目標，通常是 id
+      第二參數: 選項物件(optional object)，主要設定套件的屬性
+    */
+    const kaifu = new Swiper("#kaifu", {
+      loop: true, // 無限循環
+      speed: 1500, // 動畫轉場的持續時間
+      mousewheel: true, // 使用滾輪
+      autoplay: {
+        delay: 5000 // 自動播放，幾秒後下一張
+      },
+      // rwd 斷點控制，在哪個尺寸顯示幾張圖片
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        992: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1200: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        }
+      },
+      // 啟用上一張、下一張功能
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      // 啟用分頁指示器功能
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        // type: "fraction", // 分數顯示，例如 1/5 
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
