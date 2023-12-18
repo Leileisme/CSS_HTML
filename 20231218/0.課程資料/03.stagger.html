@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <style>
+    body {
+      padding-bottom: 200px;
+    }
+
+    h3,
+    h4 {
+      margin-bottom: 20px;
+    }
+
+    .wrap {
+      width: 600px;
+      height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7 {
+      width: 50px;
+      height: 50px;
+      background: black;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Stagger 交錯效果</h3>
+    <div class="wrap">
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+    </div>
+
+    <hr>
+
+    <h3>動畫狀態與事件函式</h3>
+    <div class="box2"></div>
+    <div class="progress mb-3">
+      <div class="progress-bar"></div>
+    </div>
+    <button id="btn1">play 播放</button>
+    <button id="btn2">paused 暫停狀態</button>
+    <button id="btn3">reversed 反轉狀態</button>
+
+    <hr>
+
+    <h3>gsap.from() 與 gsap.fromTo()</h3>
+    <h4>gsap.from()</h4>
+    <p>指定元素補間動畫從 設定狀態 到 目前狀態，可使用於進場動畫。</p>
+    <div class="box3"></div>
+    <h4>gsap.fromTo()</h4>
+    <p>指定元素補間動畫從 from 設定狀態1 到 to 設定狀態2。</p>
+    <div class="box4"></div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 設定 gsap 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <script>
+
+    // Stagger 交錯效果
+    gsap.to('.box1', {
+      y: 100,
+      stagger: 0.1, // 每個元素動畫交錯的時間，可以設定數值或使用物件
+      stagger: {
+        each: 0.1, // 每個元素動畫交錯的時間
+        from: 'center', // 可以設定 index 從第幾個開始(index 從 0 開始)，start、center、end、edges、random
+        repeat: -1, // 設定重複次數，-1 為無限重複
+        yoyo: true // 重複動畫時，是否反向來回播放
+      },
+      // 可以比較一下 stagger 的 repeat 與 yoyo 與 面的 repeat、yoyo 的差異
+      // repeat:-1,
+      // yoyo:true,
+      delay: 0.5,
+      duration: 0.5,
+    })
+
+    // 動畫狀態與事件函式
+    const kaifu = gsap.to('.box2', {
+      x: '80vw',
+      duration: 5,
+      repeat: 0,
+      yoyo: true,
+      paused: true, // 是否暫停狀態
+      reversed: false, // 是否反轉狀態
+      ease: 'none',
+      // 動畫開始
+      onStart: function (p1, p2, p3, sayHi) {
+        console.log(p1, p2, p3)
+        sayHi()
+        console.log(this) // 指向到 tween 本身自己
+      },
+      onStartParams: ['動畫開始了', 'KaiFu', '!!!!', sayHi],
+      // 動畫完成
+      onComplete: onComplete,
+      onCompleteParams: ['動畫結束了', 'KaiFu'],
+      // 動畫更新中
+      onUpdate(p1, p2) {
+        // console.log(this.progress()) // 0~1 動畫進度
+        console.log(this.progress().toFixed(2))
+        $('.progress-bar').css({
+          width: `${Math.floor(this.progress().toFixed(2) * 100)}%`
+        })
+      },
+      onUpdateParams: ['動畫更新了', 'KaiFu'],
+    })
+
+    // play 正向播放
+    $('#btn1').on('click', () => {
+      kaifu.play()
+    })
+
+    // 暫停狀態
+    $('#btn2').on('click', () => {
+      // console.log(tween.paused())
+      kaifu.paused(!kaifu.paused()) // 用暫停狀態控制動畫是否播放
+    })
+
+    $('#btn3').on('click', () => {
+      // console.log(tween.paused())
+      kaifu.reversed(!kaifu.reversed()) // 用暫停狀態控制動畫是否播放
+    })
+
+    function onComplete(p1, p2) {
+      console.log(p1, p2)
+    }
+
+    function sayHi() {
+      console.log('hi')
+    }
+    // const sayHi = () => {
+    //   console.log('hi')
+    // }
+
+    // gsap.from() 與 gsap.fromTo()
+    gsap.from('.box3', {
+      x: -500,
+      duration: 1
+    })
+
+    gsap.fromTo('.box4',
+      {
+        x: 1000
+      },
+      {
+        x: 0,
+        delay: 1,
+        duration: 1 // delay、duration 要設定在第二組，第一組沒有效果
+      })
+  </script>
+</body>
+
+</html>
