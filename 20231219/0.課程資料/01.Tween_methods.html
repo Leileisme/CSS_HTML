@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <style>
+    body {
+      padding: 20px 0;
+    }
+
+    .wrap {
+      width: 600px;
+      height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .box1 {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      background: #000;
+    }
+
+    button {
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      margin-top: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>tween 的方法</h3>
+    <div style="background-color: #eee;">
+      <div class="box1"></div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4>控制動畫的方法</h4>
+        <button id="play">play 正向播放</button>
+        <button id="reverse">reverse 反向播放</button>
+        <button id="pause">pause 暫停</button>
+        <button id="resume">resume 恢復</button>
+        <button id="restart">restart 重播</button>
+
+        <h4>延遲、重複方法</h4>
+        <button id="delay">delay</button>
+        <button id="repeat">repeat(1)</button>
+        <button id="repeatDelay">repeatDelay</button>
+
+        <h4>進度相關方法</h4>
+        <button id="progress">progress 與 totalProgress</button>
+        <button id="time">time 與 totalTime</button>
+        <button id="duration">duration 與 totalDuration</button>
+
+        <h4>其他方法</h4>
+        <button id="iteration">iteration</button>
+        <button id="targets">targets 與 then</button>
+      </div>
+      <div class="col">
+        <h4>狀態</h4>
+        <p id="paused-text">paused 狀態(動畫目前是否暫停)</p>
+        <p id="reversed-text">reversed 狀態(動畫是否反向進行)</p>
+        <p id="isActive-text">isActive 狀態(動畫是否進行中)</p>
+
+        <hr>
+
+        <h4>進度</h4>
+        <p id="progress-text">progress:</p>
+        <p id="totalProgress-text">totalProgress:</p>
+        <p id="time-text">time:</p>
+        <p id="totalTime-text">totalTime:</p>
+        <p id="duration-text">duration:</p>
+        <p id="totalDuration-text">totalDuration:</p>
+
+        <hr>
+
+        <h4>其他</h4>
+        <p id="iteration-text">iteration:</p>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 設定 gsap 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <script>
+    const tweenText = {
+      paused: 'paused 狀態(動畫目前是否暫停)',
+      reversed: 'reversed 狀態(動畫是否反向進行)',
+      isActive: 'isActive 狀態(動畫是否進行中)'
+    }
+
+    const tween = gsap.to('.box1', {
+      x: $('.container').width() - $('.box1').width(),
+      duration: 3,
+      paused: true,
+      reversed: false,
+      // delay: 3,
+      ease: 'none',
+      onUpdate() {
+        // 狀態
+        $('#paused-text').text(tweenText.paused + ': ' + tween.paused())
+        $('#reversed-text').text(tweenText.reversed + ': ' + tween.reversed())
+        $('#isActive-text').text(tweenText.isActive + ': ' + tween.isActive())
+        // 進度
+        $('#progress-text').text('progress: ' + this.progress().toFixed(1))
+        $('#totalProgress-text').text('totalProgress: ' + this.totalProgress().toFixed(1))
+
+        $('#time-text').text('time: ' + this.time().toFixed(1))
+        $('#totalTime-text').text('totalTime: ' + this.totalTime().toFixed(1))
+
+        $('#duration-text').text('duration: ' + this.duration().toFixed(1))
+        $('#totalDuration-text').text('totalDuration: ' + this.totalDuration())
+      },
+      onStart() {
+        $('#iteration-text').text('iteration:播放第 ' + this.iteration() + ' 次')
+      },
+      onRepeat() {
+        $('#iteration-text').text('iteration:播放第 ' + this.iteration() + ' 次')
+      }
+    })
+
+    // 正向播放
+    $('#play').on('click', () => {
+      tween.play() // 播放頭(play head)正向播放
+      // tween.play(3) // 從 3 秒開始播放
+    })
+
+    // 反向播放
+    $('#reverse').on('click', () => {
+      tween.reverse() // 播放頭(play head)反向播放
+      // tween.reverse(3) // 從 3 秒開始反向播放
+    })
+
+    // 暫停
+    $('#pause').on('click', () => {
+      tween.pause() // 暫停
+      // tween.pause(3) // 暫停在三秒
+      $('#paused-text').text(tweenText.paused + ': ' + tween.paused())
+      $('#reversed-text').text(tweenText.reversed + ': ' + tween.reversed())
+      $('#isActive-text').text(tweenText.isActive + ': ' + tween.isActive())
+    })
+
+    // 恢復
+    $('#resume').on('click', () => {
+      tween.resume() // 恢復播放，會依據當前播放頭的方向播放
+    })
+
+    // 重播
+    $('#restart').on('click', () => {
+      tween.restart() // 預設是 false，不考慮 delay
+      tween.restart(true) // true 會考慮 delay
+    })
+
+    // 延遲
+    $('#delay').on('click', () => {
+      tween.play().delay(3) // 設定延遲 3 秒，delay() 要在 play() 之後才會生效
+    })
+
+    // 重播次數
+    // 設定重播 1 次，動畫會播放 2 次，初始播放 1 次， 重播 1 次
+    $('#repeat').on('click', () => {
+      tween.repeat(1).play()// 重播 1 次
+      console.log(tween.repeat()) // 取得重複播放次數
+    })
+
+    // 重播延遲
+    $('#repeatDelay').on('click', () => {
+      tween.repeat(1).repeatDelay(3).play()
+      console.log(tween.repeatDelay()) // 取得重播延遲時間
+    })
+
+    // 動畫進度
+    $('#progress').on('click', () => {
+      // setter 設定值
+      // tween.progress(0.5) // 播放頭設置到 0 ~ 1 之間的動畫進度， 1 為 100%
+      // tween.totalProgress(0.5) // 沒有設置 repeat，此時 progress、totalProgress 效果相同
+
+      // 如果設定 repeat、repeatDelay，則 totalProgress 為整體進度(只跑一次)，但 progress 為單次進度，會跑好幾次
+      tween.repeat(1)
+      tween.repeatDelay(5)
+      tween.play()
+
+      // getter 取值
+      let progress = tween.progress()
+      let totalProgress = tween.totalProgress()
+      console.log(progress, totalProgress)
+    })
+
+    // 動畫時間
+    $('#time').on('click', () => {
+      // 在 repeat:0，time、totalTime 效果相同
+      tween.time(2.5)
+
+      // totalTime 與 totalProgress 都受到 repeat、repeatDelay 影響
+      // 3*3 + 5*2 = 19 => 播放時間 3 秒，總共播了 3 次(1次初始，2次重播)，重播間隔 5 秒，播了 2 次，總共 19 秒
+      tween.repeat(2)
+      tween.repeatDelay(5)
+      tween.play()
+    })
+
+    // 動畫時間
+    $('#duration').on('click', function () {
+      // duration 與進度無關，它與 初始播放 與 repeat 的時間依據有關，duration:5 初始是 5 秒，repeat 也是 5 秒
+      tween.duration(5)
+      tween.repeatDelay(2)
+      tween.repeat(2)
+      tween.play()
+      /*  
+        totalDuration 一開始就可以計算出動畫花費的總時間，範例是 19 秒，5*3 + 2*2 = 19
+      */
+    })
+
+    $('#iteration').on('click', () => {
+      // tween.iteration() // getter，可取得目前第幾次播放
+      // tween.iteration(n) // setter，可設定第幾次播放
+
+      tween.repeat(2) // 播三次
+      tween.iteration(2).play() // 設定從第幾二次開始播放
+    })
+
+    $('#targets').on('click', function () {
+      console.log(tween.targets()) // 取得目前動畫的目標物件
+      tween.play()
+      tween
+        .then(function (tween) {
+          $(tween.targets()).css({ background: 'blue' })
+          return tween
+        })
+        .then(function (tween) {
+          gsap.to('.box1', {
+            delay: 1,
+            background: 'red',
+            rotation: 360
+          })
+        })
+    })
+  </script>
+</body>
+
+</html>
