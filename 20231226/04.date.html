@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <style>
+    section {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section:nth-child(odd) {
+      background: lightblue;
+    }
+
+    section:nth-child(even) {
+      background: lightgrey;
+    }
+
+    #date {
+      height: 5rem;
+      display: none;
+      font-size: 5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <section></section>
+  <section id="section01">
+    <div id="date">1</div>
+  </section>
+  <section></section>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 設定 gsap 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- 使用 gsap plugin -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    const data = {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth() + 1,
+      day: new Data().gerDate()
+    }
+
+    // from 從指定的起始狀態動畫到當前狀態
+    gsap.
+  </script>
+</body>
+
+</html>

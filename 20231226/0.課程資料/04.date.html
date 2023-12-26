@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <style>
+    section {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section:nth-child(odd) {
+      background: lightblue;
+    }
+
+    section:nth-child(even) {
+      background: lightgrey;
+    }
+
+    #date {
+      height: 5rem;
+      display: none;
+      font-size: 5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <section></section>
+  <section id="section01">
+    <div id="date">1</div>
+  </section>
+  <section></section>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 設定 gsap 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. 取得資料
+    const date = {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth() + 1,
+      day: new Date().getDate(),
+    }
+
+    gsap.from(date, {
+      // 捲動軸控制動畫何時觸發
+      scrollTrigger: {
+        trigger: '#section01',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play none none reset',
+        markers: true,
+        onEnter() {
+          $('#date').css({ display: 'block' })
+        },
+        onLeaveBack() {
+          $('#date').css({ display: 'none' })
+        },
+      },
+      // date 的屬性
+      year: 0,
+      month: 0,
+      day: 0,
+      duration: 1,
+      // 顯示在畫面上
+      onUpdate() {
+        $('#date').text(`${date.year.toFixed(0)} / ${date.month.toFixed(0)} / ${date.day.toFixed(0)}`)
+      }
+    })
+
+  </script>
+</body>
+
+</html>

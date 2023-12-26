@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <style>
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background: lightblue;
+    }
+
+    section:nth-child(even) {
+      background: lightgrey;
+      justify-content: center;
+    }
+
+    section h2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      color: white;
+      font-size: 2rem;
+      background: darkorchid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .active {
+      background: red;
+    }
+
+    .hello {
+      background: yellow;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <section></section>
+
+  <section id="section01">
+    <h2>1.設定 trigger、start、end</h2>
+    <div class="box a1">a1</div>
+  </section>
+
+  <section></section>
+
+  <section id="section02">
+    <h2>2.設定 toggleActions 與 endTrigger</h2>
+    <div class="box b1">b1</div>
+    <div class="box b2 mt-5">b2</div>
+  </section>
+
+  <section></section>
+
+  <section id="section03">
+    <h2>3. 設定 scrub</h2>
+    <div class="box c1">c1</div>
+  </section>
+
+  <section></section>
+
+  <section id="section04">
+    <h2>4. timeline 與 scrollTrigger</h2>
+    <div class="box d1">d1</div>
+  </section>
+
+  <section></section>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <!-- 設定 gsap 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- 使用 gsap plugin -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    // 註冊 gsap plugin
+    gsap.registerPlugin(ScrollTrigger);
+    /*  
+      start 與 end 的設定方式
+      雙數值
+      1. 第一數值為 trigger 的位置，第二數值為滾動軸位置
+      2. 值可以為
+          - top、center、bottom
+          - px、%、rem、vh、vw
+          - 相對位置 +=100、-=100
+          - 函式返回值
+      原理
+      1. 當滾動軸 scroll-start(綠線) 與 觸發者的 start(綠線) 相交時，動畫開始
+    */
+
+    const tween1 = gsap.to('.a1', {
+      scrollTrigger: {
+        trigger: '.a1',
+        start: 'top 50%',
+        end: 'bottom 50%',
+        // markers: true, // 打開標記線(看不到的觸發線)
+      },
+      x: '85vw',
+      duration: 3,
+      ease: 'none'
+    })
+
+    // toggleActions 與 endTrigger 的設定方式
+    const tween2 = gsap.to('.b1', {
+      scrollTrigger: {
+        trigger: '.b1',
+        start: 'top center',
+        end: 'bottom 20%',
+        /*
+          toggleActions 四個進出點觸發的動作，依序為 onEnter、onLeave、onEnterBack、onLeaveBack
+          onEnter => scroll-start(綠線) 與 trigger的 start(綠線) 相交時的動作
+          onLeave => scroll-end(紅線) 與 trigger 的 end(紅線) 相交時的動作
+          onEnterBack => scroll-end(紅線) 返回時觸發 trigger 的 end(紅線) 相交時的動作
+          onLeaveBack => scroll-start(綠線) 返回時觸發 trigger 的 start(綠線) 相交時的動作
+
+          預設 => play none none none
+          值 => play、pause、resume、reverse、restart、reset、complete、none
+        */
+        toggleActions: 'play pause resume reverse',
+        // toggleClass: 'active', 
+        toggleClass: {
+          targets: ['.b1', '.b2'], // targets 為複數時，使用陣列，對多個目標增加 class
+          className: 'active'
+        },
+        onEnterBack() {
+          $('.b2').addClass('hello');
+        },
+        onLeaveBack() {
+          $('.b2').removeClass('hello');
+        },
+        // markers: true,
+      },
+      x: '85vw',
+      duration: 5,
+      ease: 'none'
+    })
+
+    // scrub 的設定方式
+    /*
+      在 scrollTrigger 處於活動狀態時，之間的動畫進度會直接連結到滾動條的範圍進度
+      在這範圍內滾動條上下移動，可以像滑塊控制動畫的進度
+    */
+    const tween3 = gsap.to('.c1', {
+      scrollTrigger: {
+        trigger: '.c1',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 3, // 值可以為 true，或是數值(1 為 1 秒趕上動畫進度)
+        // markers: true,
+      },
+      x: '85vw',
+      rotation: 3600,
+      background: 'red',
+      duration: 5,
+      ease: 'none'
+    })
+
+    // timeline 與 scrollTrigger 的設定方式
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.d1',
+        start: 'center 80%',
+        end: 'center 20%',
+        scrub: 3,
+        markers: true,
+      }
+    })
+
+    // 時間軸子動畫之間的距離比例與動畫的總持續時間有關
+    // 時間軸子動畫 duration 會與整體 scrub 進度分配比例綁在一起
+    // 例如 1、1、1 進度會被分成 33%、33%、33%
+
+    tl
+      .to('.d1', {
+        x: '85vw',
+        duration: 1
+      })
+      .to('.d1', {
+        rotation: 360,
+        background: 'red',
+        duration: 1
+      })
+      .to('.d1', {
+        x: 0,
+        background: 'darkorchid',
+        duration: 1
+      })
+  </script>
+</body>
+
+</html>
