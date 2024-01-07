@@ -68,7 +68,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: green;
+  background-color: blue;
   /* 使用 and 兩運算式條件都成立 */
   color: white !important;
   /* 使用 or 兩運算式其中之一成立，不能用 || */
@@ -248,7 +248,7 @@ h1 {
   width: 100px;
   height: 100px;
   color: white;
-  font-size: 40px;
+  font-size: 20px;
   width: 200px;
   height: 100px;
   background: deeppink;
