@@ -68,7 +68,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: green;
+  background-color: red;
   color: wheat !important;
   font-weight: bolder;
   font-size: 30px;
@@ -296,7 +296,7 @@ body {
   width: 100px;
   height: 100px;
   color: #dc3545;
-  font-size: 40px;
+  font-size: 60px;
   width: 50px;
   height: 100px;
   background-color: #aaa;

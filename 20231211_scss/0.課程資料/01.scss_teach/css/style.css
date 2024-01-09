@@ -248,7 +248,11 @@ h1 {
   width: 100px;
   height: 100px;
   color: white;
+<<<<<<< Updated upstream
   font-size: 20px;
+=======
+  font-size: 60px;
+>>>>>>> Stashed changes
   width: 200px;
   height: 100px;
   background: deeppink;
