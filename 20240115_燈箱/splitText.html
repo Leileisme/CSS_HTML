@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    section {
+      color: white;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section {
+      background: url('./images/ff5.jpg') no-repeat center/cover;
+    }
+
+    #text01 {
+      width: 70%;
+      height: 250px;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #070d7f;
+      border: 5px solid #eee;
+      border-radius: 10px;
+
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="text01">
+      Final Fantasy V begins on a day when the world's wind currents begin to slow and stale.
+      the king of Tycoon makes ready to travel to the Wind Shrine on the back of his drake, quelling the worries of his daughter, Princess Lenna.
+    </div>
+  </section>
+  <script src="./js/gsap/gsap.js"></script>
+  <script src="./js/gsap/SplitText.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(SplitText);
+    const text01 = new SplitText('#text01', {
+      type: 'chars, words, lines',
+    })
+    // SplitText 可以將目標元素的文字拆成字元、單字、行，並且放進一個陣列裡面
+    // 有了這些陣列元素，就可以用 gsap 做出更多的動畫效果
+    console.log(text01.chars)
+    console.log(text01.words)
+    console.log(text01.lines)
+
+    gsap.from(text01.chars, {
+      opacity: 0,
+      stagger: 0.1,
+      ease: 'steps(1)'
+    })
+
+  </script>
+</body>
+
+</html>
